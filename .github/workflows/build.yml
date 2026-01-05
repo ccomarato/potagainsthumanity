@@ -52,7 +52,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
       - name: Build and push
-        uses: docker/bake-action@v2
+        uses: docker/bake-action@v6
         with:
           files: "docker-bake.hcl"
           set: |
