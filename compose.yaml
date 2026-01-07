@@ -1,6 +1,6 @@
-# This docker compose file is for building and running a development version of Massive Decks.
+# This docker compose file is for building and running a development version of PoT Against Humanity.
 # If you want to deploy a production instance, please see 
-# https://github.com/Lattyware/massivedecks/wiki/Deploying for important steps you should take.
+# https://github.com/ccomarato/potagainsthumanity/wiki/Deploying for important steps you should take.
 
 networks:
   internal:
@@ -8,14 +8,13 @@ networks:
 services:
   server:
     build: ./server
-    image: "massivedecks/server:dev"
+    image: "potagainsthumanity/server:dev"
     networks:
       - internal
     restart: unless-stopped
-
   client:
     build: ./client
-    image: "massivedecks/client:dev"
+    image: "potagainsthumanity/client:dev"
     ports:
       - "127.0.0.1:8080:8080/tcp"
     networks:

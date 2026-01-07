@@ -66,7 +66,7 @@ viewReport shared report =
             "https://github.com"
 
         path =
-            [ "Lattyware", "massivedecks", "issues", "new" ]
+            [ "ccomarato", "potagainsthumanity", "issues", "new" ]
 
         reportBody =
             (Strings.ReportErrorBody |> Lang.string shared)

@@ -1,13 +1,13 @@
-# [Massive Decks ![Massive Decks](https://raw.githubusercontent.com/Lattyware/massivedecks/main/client/assets/images/icon.png)][hosted]
+# [PoT Against Humanity ![PoT Against Humanity](https://raw.githubusercontent.com/Lattyware/massivedecks/main/client/assets/images/icon.png)][hosted]
 
-[![Current Release Version](https://img.shields.io/github/v/tag/Lattyware/massivedecks?label=release&sort=semver)](https://github.com/Lattyware/massivedecks/releases)
-[![Build Status](https://img.shields.io/github/workflow/status/Lattyware/massivedecks/Build)](https://github.com/Lattyware/massivedecks/actions)
+[![Current Release Version](https://img.shields.io/github/v/tag/Lattyware/massivedecks?label=release&sort=semver)](https://github.com/ccomarato/potagainsthumanity/releases)
+[![Build Status](https://img.shields.io/github/workflow/status/Lattyware/massivedecks/Build)](https://github.com/ccomarato/potagainsthumanity/actions)
 [![License](https://img.shields.io/github/license/Lattyware/massivedecks)](LICENSE)
 [![Follow on Twitter for Status & Updates](https://img.shields.io/twitter/follow/Massive_Decks?label=Status%20%26%20Updates&style=social)][twitter]
 
-Massive Decks is a free, open source comedy party game based on [Cards against Humanity][cah]. Play with friends!
+PoT Against Humanity is a free, open source comedy party game based on [Cards against Humanity][cah]. Play with friends!
 
-**[Play Massive Decks][hosted]**
+**[Play PoT Against Humanity][hosted]**
 
 [hosted]: https://md.rereadgames.com/
 [cah]: https://cardsagainsthumanity.com/
@@ -41,11 +41,11 @@ The web client for the game is written in [Elm][elm], while the back-end is writ
 
 ## Deploying
 
-If you would like to run a production instance of Massive Decks, there are a couple of options.
+If you would like to run a production instance of PoT Against Humanity, there are a couple of options.
 
 It is suggested you read the [deployment guide on the wiki][deployment-guide].
 
-[deployment-guide]: https://github.com/Lattyware/massivedecks/wiki/Deploying
+[deployment-guide]: https://github.com/ccomarato/potagainsthumanity/wiki/Deploying
 
 ### Docker
 
@@ -59,7 +59,7 @@ There are example docker deployments in [the deployment folder](deployment).
 
 You can deploy to Heroku with the button below:
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Lattyware/massivedecks)
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ccomarato/potagainsthumanity)
 
 If you want to customise the deployment further, you can deploy through heroku from your own fork of the project with
 modification (note the button above is hard-coded to this repository).
@@ -72,22 +72,22 @@ check [the wiki's contribution guide][contributing] for how to get started.
 The game has a system for translation, and if you would like to provide translation to a new language, please see
 [the guide on the wiki][translation].
 
-[issue]: https://github.com/Lattyware/massivedecks/issues/new
-[contributing]: https://github.com/Lattyware/massivedecks/wiki/Contributing
-[translation]: https://github.com/Lattyware/massivedecks/wiki/Translation
+[issue]: https://github.com/ccomarato/potagainsthumanity/issues/new
+[contributing]: https://github.com/ccomarato/potagainsthumanity/wiki/Contributing
+[translation]: https://github.com/ccomarato/potagainsthumanity/wiki/Translation
 
 ## Credits
 
 ### Contributors
 
-Massive Decks is open source, and would not be possible without the time and work of
+PoT Against Humanity is open source, and would not be possible without the time and work of
 [the community members][github-contributors] who have contributed code and localizations.
 
-[github-contributors]: https://github.com/Lattyware/massivedecks/graphs/contributors
+[github-contributors]: https://github.com/ccomarato/potagainsthumanity/graphs/contributors
 
 ### Maintainers
 
-[Reread Games][reread] maintains Massive Decks. If you enjoy Massive Decks, please take a look at their other games.
+[Reread Games][reread] maintains PoT Against Humanity. If you enjoy PoT Against Humanity, please take a look at their other games.
 
 [reread]: https://www.rereadgames.com/
 
@@ -98,7 +98,7 @@ by [Cards against Humanity][cah].
 
 [cah-license]: https://creativecommons.org/licenses/by-nc-sa/2.0/
 
-Massive Decks is also inspired by:
+PoT Against Humanity is also inspired by:
 
 - [CardCast][cardcast] - an app that allowed you to play on a Chromecast, now dead.
 - [Pretend You're Xyzzy][xyzzy] - another web implementation.

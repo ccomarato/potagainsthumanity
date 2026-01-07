@@ -29,14 +29,14 @@ ENV MD_VERSION ${VERSION}
 ENV NODE_ENV ${MODE}
 
 LABEL org.opencontainers.image.created=${BUILD_DATE}
-LABEL org.opencontainers.image.url="https://github.com/Lattyware/massivedecks"
-LABEL org.opencontainers.image.source="https://github.com/Lattyware/massivedecks"
+LABEL org.opencontainers.image.url="https://github.com/ccomarato/potagainsthumanity"
+LABEL org.opencontainers.image.source="https://github.com/ccomarato/potagainsthumanity"
 LABEL org.opencontainers.image.version=${VERSION}
 LABEL org.opencontainers.image.revision=${VCS_REF}
 LABEL org.opencontainers.image.vendor="Reread Games <team@rereadgames.com>"
 LABEL org.opencontainers.image.licenses="AGPL-3.0+"
-LABEL org.opencontainers.image.title="Massive Decks (Server)"
-LABEL org.opencontainers.image.description="The web server for Massive Decks, a comedy party game."
+LABEL org.opencontainers.image.title="PoT Against Humanity (Server)"
+LABEL org.opencontainers.image.description="The web server for PoT Against Humanity, a comedy party game."
 
 WORKDIR /md
 

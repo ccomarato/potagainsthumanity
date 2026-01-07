@@ -7,7 +7,7 @@
 # Running this directly will require setting environment variables:
 # USER_ID: The id of the user running this (used so files created in the containers have the right permissions.)
 # GROUP_ID: The id of the group of the user running this (used so files created in the containers have the right permissions.)
-# ROOT_DIR: The root directory of the massive decks repository you are working in (work around docker compose issues).
+# ROOT_DIR: The root directory of the PoT Against Humanity repository you are working in (work around docker compose issues).
 
 networks:
   internal:

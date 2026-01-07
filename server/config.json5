@@ -141,9 +141,9 @@
     // connection: {
     //   host: "postgres",
     //   port: 5432 ,
-    //   user: "massivedecks",
-    //   database: "massivedecks",
-    //   password: "massivedecks",
+    //   user: "potagainsthumanity",
+    //   database: "potagainsthumanity",
+    //   password: "potagainsthumanity",
     //   keepAlive: false,
     // },
 
@@ -163,9 +163,9 @@
     // connection: {
     //   host: "postgres",
     //   port: 5432 ,
-    //   user: "massivedecks",
-    //   database: "massivedecks",
-    //   password: "massivedecks",
+    //   user: "potagainsthumanity",
+    //   database: "potagainsthumanity",
+    //   password: "potagainsthumanitys",
     //   keepAlive: false,
     // },
 
@@ -187,7 +187,7 @@
   touchOnStart: null,
   // This will be overwritten by the environment variable MD_TOUCH_ON_START, if set.
 
-  // The version of Massive Decks.
+  // The version of PoT Against Humanity.
   version: "dev",
   // This will be overwritten by the environment variable MD_VERSION, if set.
 }

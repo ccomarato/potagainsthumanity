@@ -42,14 +42,14 @@ ARG VCS_REF
 EXPOSE 8080
 
 LABEL org.opencontainers.image.created=${BUILD_DATE}
-LABEL org.opencontainers.image.url="https://github.com/Lattyware/massivedecks"
-LABEL org.opencontainers.image.source="https://github.com/Lattyware/massivedecks"
+LABEL org.opencontainers.image.url="https://github.com/ccomarato/potagainsthumanity"
+LABEL org.opencontainers.image.source="https://github.com/ccomarato/potagainsthumanity"
 LABEL org.opencontainers.image.version=${VERSION}
 LABEL org.opencontainers.image.revision=${VCS_REF}
 LABEL org.opencontainers.image.vendor="Reread Games <team@rereadgames.com>"
 LABEL org.opencontainers.image.licenses="AGPL-3.0+"
-LABEL org.opencontainers.image.title="Massive Decks (Client)"
-LABEL org.opencontainers.image.description="The web client for Massive Decks, a comedy party game."
+LABEL org.opencontainers.image.title="PoT Against Humanity (Client)"
+LABEL org.opencontainers.image.description="The web client for PoT Against Humanity, a comedy party game."
 
 COPY --from=static ["/", "/usr/share/nginx/html/"]
 COPY ["./nginx.conf", "/etc/nginx/nginx.conf"]

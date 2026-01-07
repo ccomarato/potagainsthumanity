@@ -168,7 +168,7 @@
   },
 
   // Show additional content to users of the application. These are not adverts
-  // you can buy, just related projects to Massive Decks.
+  // you can buy, just related projects to PoT Against Humanity.
   adverts: {
     // Show a link to Many Decks for users to build their own decks.
     // Note this will only work if you have Many Decks set as a source.
@@ -181,7 +181,7 @@
   touchOnStart: null,
   // This will be overwritten by the environment variable MD_TOUCH_ON_START, if set.
 
-  // The version of Massive Decks.
+  // The version of PoT Against Humanity.
   version: "dev",
   // This will be overwritten by the environment variable MD_VERSION, if set.
 }

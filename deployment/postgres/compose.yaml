@@ -1,4 +1,4 @@
-# This docker compose file is for building and running a production version of Massive Decks.
+# This docker compose file is for building and running a production version of PoT Against Humanity.
 # This uses images built by the project.
 # This version also configures a postgres server for data storage.
 

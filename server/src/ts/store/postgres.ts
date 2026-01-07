@@ -18,27 +18,27 @@ class To0 extends Postgres.Upgrade<undefined, 0> {
   public readonly to = 0;
 
   public async apply(client: Pg.PoolClient): Promise<0> {
-    await client.query("CREATE SCHEMA massivedecks;");
+    await client.query("CREATE SCHEMA potagainsthumanity;");
     await client.query(
-      "CREATE TABLE massivedecks.meta ( version INTEGER NOT NULL, id UUID NOT NULL );",
+      "CREATE TABLE potagainsthumanity.meta ( version INTEGER NOT NULL, id UUID NOT NULL );",
     );
     await client.query(`
-          CREATE TABLE massivedecks.lobbies ( 
+          CREATE TABLE potagainsthumanity.lobbies ( 
             id SERIAL PRIMARY KEY, 
             lobby JSONB NOT NULL, 
             last_access TIMESTAMP DEFAULT NOW() 
           );
         `);
     await client.query(`
-          CREATE TABLE massivedecks.timeouts ( 
+          CREATE TABLE potagainsthumanity.timeouts ( 
             id SERIAL PRIMARY KEY, 
-            lobby INTEGER NOT NULL REFERENCES massivedecks.lobbies(id) ON DELETE CASCADE, 
+            lobby INTEGER NOT NULL REFERENCES potagainsthumanity.lobbies(id) ON DELETE CASCADE, 
             after BIGINT NOT NULL, 
             timeout JSONB NOT NULL 
           );
         `);
     await client.query(`
-          CREATE VIEW massivedecks.summaries AS SELECT 
+          CREATE VIEW potagainsthumanity.summaries AS SELECT 
             id, 
             lobby->'name' AS name, 
             lobby->'game' IS NULL AS started, 
@@ -50,9 +50,9 @@ class To0 extends Postgres.Upgrade<undefined, 0> {
               ) u 
             ) AS users,
             lobby->'password' IS NOT NULL AS password 
-          FROM massivedecks.lobbies WHERE (lobby->'config'->'public')::boolean = true;
+          FROM potagainsthumanity.lobbies WHERE (lobby->'config'->'public')::boolean = true;
         `);
-    await client.query("INSERT INTO massivedecks.meta VALUES ($1, $2);", [
+    await client.query("INSERT INTO potagainsthumanity.meta VALUES ($1, $2);", [
       this.to,
       uuid.v4(),
     ]);
@@ -85,13 +85,13 @@ export class PostgresStore extends Store.Store {
     config: Config.PostgreSQL,
   ): Promise<PostgresStore> {
     const pg = new Postgres.Postgres(
-      "massivedecks",
+      "potagainsthumanity",
       config.connection,
       upgrades,
     );
     await pg.ensureCurrent();
     return await pg.withClient(async (client) => {
-      const rows = await client.query(`SELECT id FROM massivedecks.meta`);
+      const rows = await client.query(`SELECT id FROM potagainsthumanity.meta`);
       return new PostgresStore(rows.rows[0]["id"], config, pg);
     });
   }
@@ -117,7 +117,7 @@ export class PostgresStore extends Store.Store {
       async (client) =>
         (
           await client.query(
-            "SELECT EXISTS (SELECT id FROM massivedecks.lobbies WHERE id = $1)",
+            "SELECT EXISTS (SELECT id FROM potagainsthumanity.lobbies WHERE id = $1)",
             [lobbyId],
           )
         ).rows[0].exists,
@@ -128,7 +128,7 @@ export class PostgresStore extends Store.Store {
     const lobbyId = GameCode.decode(gameCode);
     await this.pg.withClient(
       async (client) =>
-        await client.query("DELETE FROM massivedecks.lobbies WHERE id = $1", [
+        await client.query("DELETE FROM potagainsthumanity.lobbies WHERE id = $1", [
           lobbyId,
         ]),
     );
@@ -138,7 +138,7 @@ export class PostgresStore extends Store.Store {
     return await this.pg.withClient(async (client) => {
       const result = await client.query(
         `
-          DELETE FROM massivedecks.lobbies WHERE
+          DELETE FROM potagainsthumanity.lobbies WHERE
             ((last_access + $1::interval ) < NOW()) OR
             (SELECT bool_and(value->>'control' = 'Computer' OR value->>'presence' = 'Left') FROM jsonb_each(lobby->'users'));
         `,
@@ -157,7 +157,7 @@ export class PostgresStore extends Store.Store {
   private static async *lobbySummariesInternal(
     client: Pg.PoolClient,
   ): AsyncIterableIterator<Lobby.Summary> {
-    const result = await client.query("SELECT * FROM massivedecks.summaries");
+    const result = await client.query("SELECT * FROM potagainsthumanity.summaries");
     for (const { id, name, started, ended, users, password } of result.rows) {
       yield {
         gameCode: GameCode.encode(id),
@@ -188,7 +188,7 @@ export class PostgresStore extends Store.Store {
         defaults,
       );
       const result = await client.query(
-        "INSERT INTO massivedecks.lobbies VALUES (DEFAULT, $1) RETURNING id",
+        "INSERT INTO potagainsthumanity.lobbies VALUES (DEFAULT, $1) RETURNING id",
         [lobby],
       );
       const gameCode = GameCode.encode(result.rows[0]["id"]);
@@ -215,7 +215,7 @@ export class PostgresStore extends Store.Store {
     client: Pg.PoolClient,
   ): AsyncIterableIterator<Timeout.TimedOut> {
     const result = await client.query(
-      "SELECT * FROM massivedecks.timeouts WHERE after < $1;",
+      "SELECT * FROM potagainsthumanity.timeouts WHERE after < $1;",
       [Date.now()],
     );
     for (const row of result.rows) {
@@ -237,7 +237,7 @@ export class PostgresStore extends Store.Store {
     const lobbyId = GameCode.decode(gameCode);
     return await this.pg.inTransaction(async (client) => {
       const get = await client.query(
-        "SELECT lobby FROM massivedecks.lobbies WHERE id = $1;",
+        "SELECT lobby FROM potagainsthumanity.lobbies WHERE id = $1;",
         [lobbyId],
       );
       if (get.rowCount < 1) {
@@ -248,20 +248,20 @@ export class PostgresStore extends Store.Store {
       );
       if (transaction.lobby) {
         await client.query(
-          "UPDATE massivedecks.lobbies SET lobby=$2, last_access=NOW() WHERE id = $1;",
+          "UPDATE potagainsthumanity.lobbies SET lobby=$2, last_access=NOW() WHERE id = $1;",
           [lobbyId, transaction.lobby],
         );
       }
       if (transaction.timeouts !== undefined) {
         for (const timeout of transaction.timeouts) {
           await client.query(
-            "INSERT INTO massivedecks.timeouts VALUES (DEFAULT, $1, $2, $3)",
+            "INSERT INTO potagainsthumanity.timeouts VALUES (DEFAULT, $1, $2, $3)",
             [lobbyId, Date.now() + timeout.after, timeout.timeout],
           );
         }
       }
       if (transaction.executedTimeout !== undefined) {
-        await client.query("DELETE FROM massivedecks.timeouts WHERE id = $1", [
+        await client.query("DELETE FROM potagainsthumanity.timeouts WHERE id = $1", [
           transaction.executedTimeout,
         ]);
       }

@@ -1,3 +1,3 @@
-import * as massiveDecks from "./massive-decks";
+import * as massivedecks from "./massive-decks";
 
-massiveDecks.load(false);
+massivedecks.load(false);
