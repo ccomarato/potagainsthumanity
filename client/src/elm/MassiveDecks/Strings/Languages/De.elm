@@ -51,6 +51,9 @@ translate _ mdString =
         MassiveDecks ->
             [ Text "Massive Decks" ]
 
+        PoTAgainstHumanity ->
+            [ Text "PoT Against Humanity" ]
+
         Close ->
             [ Text "Schließen" ]
 

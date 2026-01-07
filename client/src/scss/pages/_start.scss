@@ -69,6 +69,28 @@
           transform: rotateZ(5deg) translateY(-1em) translateX(-1.5em);
         }
       }
+
+      // Make the subtitle (ShortGameDescription) text smaller on the start page
+      .game-card {
+        .content {
+          font-size: 1.3em;
+          line-height: 1.4em;
+        }
+      }
+    }
+
+    // Make the black card (title/back) text smaller on the start page
+    h1 {
+      .game-card {
+        .side.back {
+          .content {
+            p {
+              font-size: 1.3em;
+              line-height: 1.1em;
+            }
+          }
+        }
+      }
     }
   }
 

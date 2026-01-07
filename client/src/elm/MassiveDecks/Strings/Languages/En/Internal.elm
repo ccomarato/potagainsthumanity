@@ -13,6 +13,9 @@ translate _ mdString =
         MassiveDecks ->
             [ Text "Massive Decks" ]
 
+        PoTAgainstHumanity ->
+            [ Text "PoT Against Humanity" ]
+
         Close ->
             [ Text "Close" ]
 
@@ -59,13 +62,13 @@ translate _ mdString =
                 ]
 
         ShortGameDescription ->
-            [ Text "A comedy party game." ]
+            [ Text "The recognized symbol of excellence in online gaming." ]
 
         WhatIsThis ->
-            [ Text "What is ", ref MassiveDecks, Text "?" ]
+            [ Text "What is ", ref PoTAgainstHumanity, Text "?" ]
 
         GameDescription ->
-            [ ref MassiveDecks
+            [ ref PoTAgainstHumanity
             , Text " is a comedy party game based on "
             , ref CardsAgainstHumanity
             , Text ", developed by "
@@ -81,7 +84,7 @@ translate _ mdString =
             [ Text "New" ]
 
         NewGameDescription ->
-            [ Text "Start a new game of ", ref MassiveDecks, Text "." ]
+            [ Text "Start a new game of ", ref PoTAgainstHumanity, Text ":" ]
 
         FindPublicGame ->
             [ Text "Find" ]
@@ -90,7 +93,7 @@ translate _ mdString =
             [ Text "Join" ]
 
         JoinPrivateGameDescription ->
-            [ Text "Join a game someone invited you to." ]
+            [ Text "Join a game some boner invited you to:" ]
 
         PlayGame ->
             [ Text "Play" ]
@@ -99,7 +102,7 @@ translate _ mdString =
             [ Text "About" ]
 
         AboutTheGameDescription ->
-            [ Text "Find out about ", ref MassiveDecks, Text " and how it is developed." ]
+            [ Text "Find out about ", ref PoTAgainstHumanity, Text " and how it is developed." ]
 
         MDLogoDescription ->
             [ Text "A ", ref (noun Call 1), Text " and a ", ref (noun Response 1), Text " marked with an “M” and a “D”." ]
@@ -123,7 +126,7 @@ translate _ mdString =
             [ Text "Your Name" ]
 
         NameInUse ->
-            [ Text "Someone else is using this name in the game—please try a different one." ]
+            [ Text "Someone else is using this name in the game. Please try a different one." ]
 
         RejoinTitle ->
             [ Text "Rejoin Game" ]
@@ -132,10 +135,10 @@ translate _ mdString =
             [ Text "Rejoin “", GameCode { code = code } |> ref, Text "”." ]
 
         LobbyRequiresPassword ->
-            [ Text "You need a password to join this game. Try asking the person that invited you." ]
+            [ Text "You need a password to join this game. Try asking the boner that invited you." ]
 
         YouWereKicked ->
-            [ Text "You were kicked from the game." ]
+            [ Text "You were kicked in the crotch in a humiliating manner." ]
 
         ScrollToTop ->
             [ Text "Scroll to the top." ]
@@ -374,7 +377,7 @@ translate _ mdString =
 
         TranslationBeg ->
             [ Text "Help translate "
-            , ref MassiveDecks
+            , ref PoTAgainstHumanity
             , Text "!"
             ]
 
@@ -414,7 +417,7 @@ translate _ mdString =
 
         NotificationsBrowserPermissions ->
             [ Text "You will need to give permission for "
-            , ref MassiveDecks
+            , ref PoTAgainstHumanity
             , Text " to notify you. This will only be used while the game is open and while you have this enabled."
             ]
 
@@ -447,16 +450,16 @@ translate _ mdString =
             [ Text "Game Code" ]
 
         GameCodeDescription ->
-            [ Text "A code that lets other people find and join your game." ]
+            [ Text "A code that lets other boners find and join your game." ]
 
         GameCode { code } ->
             [ Text code ]
 
         GameCodeSpecificDescription ->
-            [ Text "Give this game code to people and they can join the game." ]
+            [ Text "Give this game code to other boners and they can join the game." ]
 
         GameCodeHowToAcquire ->
-            [ Text "Ask the person who invited you for the game’s ", ref GameCodeTerm, Text "." ]
+            [ Text "Ask the boner who invited you for the game’s ", ref GameCodeTerm, Text "." ]
 
         Deck ->
             [ Text "Deck" ]
@@ -564,7 +567,7 @@ translate _ mdString =
                 [ [ Text "Your game code is "
                   , ref (GameCode { code = gameCode })
                   , Text ". Players can join the game by loading "
-                  , ref MassiveDecks
+                  , ref PoTAgainstHumanity
                   , Text " and entering that code"
                   ]
                 , extra

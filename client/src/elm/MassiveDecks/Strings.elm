@@ -49,7 +49,8 @@ nounMaybe n quantity =
 included in some form in the message.
 -}
 type MdString
-    = MassiveDecks -- The name of the game.
+    = PoTAgainstHumanity -- The name of the game.
+    | MassiveDecks -- Legacy constructor; to be removed.
     | Close -- Close a dialog window.
       -- Special
     | Noun { noun : Noun, quantity : Quantity } -- The given noun, described in the given quantity and context.

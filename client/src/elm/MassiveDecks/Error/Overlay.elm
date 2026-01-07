@@ -12,7 +12,7 @@ import MassiveDecks.Model exposing (Shared)
 import MassiveDecks.Pages.Route exposing (Route)
 import MassiveDecks.Strings as Strings
 import MassiveDecks.Strings.Languages as Lang
-import MassiveDecks.Util.NeList as NeList exposing (NeList(..))
+-- import MassiveDecks.Util.NeList as NeList exposing (NeList(..))
 import Material.Card as Card
 import Material.IconButton as IconButton
 

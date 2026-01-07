@@ -254,7 +254,7 @@ view shared model =
                 [ Html.blankA
                     [ HtmlA.class "logo"
                     , Strings.MDProject |> Lang.title shared
-                    , HtmlA.href "https://github.com/Lattyware/massivedecks"
+                    , HtmlA.href "https://github.com/ccomarato/potagainsthumanity"
                     ]
                     [ Icon.massiveDecks |> Icon.styled [ Strings.MDLogoDescription |> Lang.alt shared ] |> Icon.view ]
                 , Html.blankA
@@ -266,7 +266,7 @@ view shared model =
                 ]
             , Html.p [ HtmlA.class "version" ]
                 [ Html.text "\""
-                , Strings.MassiveDecks |> Lang.html shared
+                , Strings.PoTAgainstHumanity |> Lang.html shared
                 , Html.text "\" "
                 , Strings.Version { clientVersion = Version.version, serverVersion = shared.serverVersion } |> Lang.html shared
                 ]

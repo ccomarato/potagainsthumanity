@@ -79,7 +79,7 @@ back shared =
     in
     cardSide Back
         [ Html.div [ HtmlA.class "content" ]
-            (Strings.MassiveDecks |> Lang.string shared |> String.words |> List.map renderWord)
+            (Strings.PoTAgainstHumanity |> Lang.string shared |> String.words |> List.map renderWord)
         ]
 
 
