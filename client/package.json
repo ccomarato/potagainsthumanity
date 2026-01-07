@@ -33,7 +33,7 @@
     "@types/chrome": "^0.0.188",
     "@types/chromecast-caf-receiver": "^6.0.6",
     "@types/chromecast-caf-sender": "^1.0.3",
-    "ajv": "^8.8.2",
+    "ajv": "^8.17.1",
     "app-manifest-loader": "^2.4.1",
     "chromecast-device-emulator": "^1.1.2",
     "compression-webpack-plugin": "^10.0.0",
