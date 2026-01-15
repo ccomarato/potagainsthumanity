@@ -8,7 +8,6 @@ module MassiveDecks.Requests.Api exposing
 
 import Http
 import Json.Decode as Json
-import MassiveDecks.Card.Source.Model as Source
 import MassiveDecks.Error.Model as Error
 import MassiveDecks.Models.Decoders as Decoders
 import MassiveDecks.Models.Encoders as Encoders

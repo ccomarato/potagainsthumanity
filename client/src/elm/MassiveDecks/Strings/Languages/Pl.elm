@@ -62,6 +62,9 @@ translate maybeDeclCase mdString =
         PoTAgainstHumanity ->
             [ Text "PoT Against Humanity" ]
 
+        PodOfThunder ->
+            [ Text "Pod of Thunder" ]
+
         Close ->
             [ Text "Zamknij" ]
 
@@ -130,6 +133,9 @@ translate maybeDeclCase mdString =
 
         RereadLogoDescription ->
             [ Text "Książka otoczona strzałką recyklingu." ]
+
+        PodOfThunderLogoDescription ->
+            [ Text "Błyskawica z napisem „Pod of Thunder” na niej." ]
 
         MDProject ->
             [ Text
@@ -945,6 +951,12 @@ translate maybeDeclCase mdString =
         ManyDecksWhereToGet ->
             [ Text "Możesz stworzyć lub znaleźć talie na ", ref ManyDecks, Text "." ]
 
+        PopeStuff ->
+            [ Text "Pope Stuff" ]
+
+        PopeStuffWhereToGet ->
+            [ Text "Możesz znaleźć różne ", ref PopeStuff, Text " tutaj!" ]
+            
         JsonAgainstHumanity ->
             [ Text "JSON Against Humanity" ]
 

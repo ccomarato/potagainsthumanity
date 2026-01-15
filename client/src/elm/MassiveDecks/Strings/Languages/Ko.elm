@@ -37,6 +37,9 @@ translate _ mdString =
         PoTAgainstHumanity ->
             [ Text "PoT Against Humanity" ]
 
+        PodOfThunder ->
+            [ Text "Pod of Thunder" ]
+
         Close ->
             [ Text "닫기" ]
 
@@ -130,6 +133,9 @@ translate _ mdString =
 
         RereadLogoDescription ->
             [ Text "재활용 화살표에 둘러싸인 책." ]
+
+        PodOfThunderLogoDescription ->
+            [ Text "“Pod of Thunder”라는 글자가 겹쳐진 번개." ]
 
         MDProject ->
             [ Text "GitHub 프로젝트" ]
@@ -813,6 +819,12 @@ translate _ mdString =
         ManyDecksWhereToGet ->
             [ ref ManyDecks, Text "에서 덱을 만들거나 플레이할 덱을 찾을 수 있습니다." ]
 
+        PopeStuff ->
+            [ Text "Pope Stuff" ]
+
+        PopeStuffWhereToGet ->
+            [ Text "여기에서 다양한 ", ref PopeStuff, Text "를 찾을 수 있습니다!" ]
+            
         JsonAgainstHumanity ->
             [ Text "JSON Against Humanity" ]
 

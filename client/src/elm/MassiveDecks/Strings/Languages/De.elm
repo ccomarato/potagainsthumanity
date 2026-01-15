@@ -10,7 +10,6 @@ Contributors:
 
 import MassiveDecks.Card.Source.BuiltIn.Model as BuiltIn
 import MassiveDecks.Card.Source.Model as Source
-import MassiveDecks.Game.Rules exposing (WinnersPick)
 import MassiveDecks.Strings exposing (MdString(..), Noun(..), Quantity(..), noun, nounMaybe, nounUnknownQuantity)
 import MassiveDecks.Strings.Languages.Model exposing (Language(..))
 import MassiveDecks.Strings.Translation as Translation
@@ -53,6 +52,9 @@ translate _ mdString =
 
         PoTAgainstHumanity ->
             [ Text "PoT Against Humanity" ]
+
+        PodOfThunder ->
+            [ Text "Pod of Thunder" ]
 
         Close ->
             [ Text "Schließen" ]
@@ -155,6 +157,9 @@ translate _ mdString =
 
         RereadLogoDescription ->
             [ Text "Ein von einem Recycling-Pfeil umkreistes Buch." ]
+        
+        PodOfThunderLogoDescription ->
+            [ Text "Ein Blitz mit den Worten “Pod of Thunder” darübergelegt." ]
 
         MDProject ->
             [ Text "dem GitHub-Projekt" ]
@@ -400,7 +405,7 @@ translate _ mdString =
             [ Missing ]
 
         -- TODO: Translate
-        SeeAlso { rule } ->
+        SeeAlso _ ->
             [ Missing ]
 
         MustBeMoreThanOrEqualValidationError { min } ->
@@ -848,6 +853,12 @@ translate _ mdString =
         ManyDecksWhereToGet ->
             [ Text "Sie können Kartensätze bei ", ref ManyDecks, Text " zum Spielen finden oder selber erstellen." ]
 
+        PopeStuff ->
+            [ Text "Pope Stuff" ]
+
+        PopeStuffWhereToGet ->
+            [ Text "Du kannst alle möglichen ", ref PopeStuff, Text " hier finden!" ]
+
         JsonAgainstHumanity ->
             [ Text "JSON Against Humanity" ]
 
@@ -861,7 +872,7 @@ translate _ mdString =
             [ Text "Ein Spieler" ]
 
         -- TODO: Translate
-        Generated { by } ->
+        Generated _ ->
             [ Missing ]
 
         DeckAlreadyAdded ->

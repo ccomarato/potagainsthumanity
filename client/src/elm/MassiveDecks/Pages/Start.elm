@@ -13,7 +13,6 @@ import FontAwesome as Icon
 import FontAwesome.Attributes as Icon
 import Html exposing (Html)
 import Html.Attributes as HtmlA
-import Html.Events as HtmlE
 import Http
 import MassiveDecks.Card.Call as Call
 import MassiveDecks.Card.Model as Card
@@ -47,7 +46,6 @@ import MassiveDecks.Strings as Strings exposing (MdString)
 import MassiveDecks.Strings.Languages as Lang
 import MassiveDecks.Util.Html as Html
 import MassiveDecks.Util.Maybe as Maybe
-import MassiveDecks.Util.NeList as NeList exposing (NeList(..))
 import MassiveDecks.Version as Version
 import Material.Button as Button
 import Material.Card as Card
@@ -201,10 +199,10 @@ view shared model =
         manyDecksAd { baseUrl } =
             if shared.adverts.manyDecks then
                 Html.blankA
-                    [ HtmlA.href baseUrl, HtmlA.id "many-decks-ad", Strings.ManyDecksWhereToGet |> Lang.title shared ]
+                    [ HtmlA.href baseUrl, HtmlA.id "many-decks-ad", Strings.PopeStuffWhereToGet |> Lang.title shared ]
                     [ Html.div []
-                        [ Icon.manyDecks |> Icon.view
-                        , Html.span [] [ Strings.ManyDecks |> Lang.string shared |> Html.text ]
+                        [ Icon.popeStuff |> Icon.view
+                        , Html.span [] [ Strings.PopeStuff |> Lang.string shared |> Html.text ]
                         ]
                     ]
 
@@ -259,10 +257,10 @@ view shared model =
                     [ Icon.massiveDecks |> Icon.styled [ Strings.MDLogoDescription |> Lang.alt shared ] |> Icon.view ]
                 , Html.blankA
                     [ HtmlA.class "logo"
-                    , Strings.DevelopedByReread |> Lang.title shared
-                    , HtmlA.href "https://www.rereadgames.com/"
+                    , Strings.PodOfThunder |> Lang.title shared
+                    , HtmlA.href "https://www.podofthunder.com/"
                     ]
-                    [ Icon.rereadGames |> Icon.styled [ Strings.RereadLogoDescription |> Lang.alt shared ] |> Icon.view ]
+                    [ Icon.potAgainstHumanity |> Icon.styled [ Strings.RereadLogoDescription |> Lang.alt shared ] |> Icon.view ]
                 ]
             , Html.p [ HtmlA.class "version" ]
                 [ Html.text "\""

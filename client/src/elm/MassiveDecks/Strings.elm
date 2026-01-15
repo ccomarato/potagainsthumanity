@@ -69,9 +69,11 @@ type MdString
     | AboutTheGameDescription -- A description of the action of finding out about the game.
     | MDLogoDescription -- A description of the Massive Decks logo (e.g: for blind users).
     | RereadLogoDescription -- A description of the Reread Games logo (e.g: for blind users).
+    | PodOfThunderLogoDescription -- A description of the Pod of Thunder logo (e.g: for blind users).
     | MDProject -- A description of the action of visiting the development project for Massive Decks.
     | License -- A description of the license the game is made available under.
     | DevelopedByReread -- A description of the fact that the game was developed by Reread.
+    | PodOfThunder -- The recognized symbol of excellence in rock and roll podcasting.
     | RereadGames -- The name of "Reread Games" (https://www.rereadgames.com/).
     | NameLabel -- A label for a user name text field.
     | NameInUse -- An error indicating the name the user asked for is already in use and they should try another.
@@ -262,6 +264,8 @@ type MdString
     | ManyDecksDeckCodeTitle -- A term referring to a deck code for Many Decks.
     | ManyDecksDeckCodeShort -- A description of the problem where a deck code must be at least five characters.
     | ManyDecksWhereToGet -- A description of how to get deck codes from Many Decks.
+    | PopeStuff -- The name of the Pope Stuff source.
+    | PopeStuffWhereToGet -- A description of how to get Pope Stuff.
     | JsonAgainstHumanity -- The name of the JSON Against Humanity source.
     | JsonAgainstHumanityAbout -- A short description of the JSON Against Humanity source.
     | BuiltIn -- A term referring to decks of cards that are provided by this instance of the game.

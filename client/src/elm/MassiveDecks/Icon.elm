@@ -9,6 +9,10 @@ import FontAwesome.Solid as Icon
 import MassiveDecks.Icon.Definitions as Definitions
 
 
+potAgainstHumanity : Icon WithoutId
+potAgainstHumanity =
+    Definitions.potAgainstHumanity |> Icon.present
+
 rereadGames : Icon WithoutId
 rereadGames =
     Definitions.rereadGames |> Icon.present
@@ -47,6 +51,11 @@ loading =
 manyDecks : Icon WithoutId
 manyDecks =
     Definitions.manyDecks |> Icon.present
+
+
+popeStuff : Icon WithoutId
+popeStuff =
+    Definitions.popeStuff |> Icon.present
 
 
 jsonAgainstHumanity : Icon WithoutId

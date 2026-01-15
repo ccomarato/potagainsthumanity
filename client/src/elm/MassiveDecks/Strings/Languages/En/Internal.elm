@@ -16,6 +16,9 @@ translate _ mdString =
         PoTAgainstHumanity ->
             [ Text "PoT Against Humanity" ]
 
+        PodOfThunder ->
+            [ Text "Pod of Thunder" ]
+
         Close ->
             [ Text "Close" ]
 
@@ -109,6 +112,9 @@ translate _ mdString =
 
         RereadLogoDescription ->
             [ Text "A book circled by a recycling arrow." ]
+
+        PodOfThunderLogoDescription ->
+            [ Text "A lightning bolt with the words “Pod of Thunder” imposed over it." ]
 
         MDProject ->
             [ Text "the GitHub project" ]
@@ -795,6 +801,12 @@ translate _ mdString =
 
         ManyDecksWhereToGet ->
             [ Text "You can create and find decks to play with at ", ref ManyDecks, Text "." ]
+
+        PopeStuff ->
+            [ Text "Pope Stuff" ]
+
+        PopeStuffWhereToGet ->
+            [ Text "You can find all sorts of ", ref PopeStuff, Text " here!" ]
 
         JsonAgainstHumanity ->
             [ Text "JSON Against Humanity" ]

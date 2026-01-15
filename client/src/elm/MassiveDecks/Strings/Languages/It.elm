@@ -53,6 +53,9 @@ translate _ mdString =
         PoTAgainstHumanity ->
             [ Text "PoT Against Humanity" ]
 
+        PodOfThunder ->
+            [ Text "Pod of Thunder" ]
+
         Close ->
             [ Text "Chiudi" ]
 
@@ -156,6 +159,9 @@ translate _ mdString =
 
         RereadLogoDescription ->
             [ Text "Un libro cerchiato con una freccia di riciclo." ]
+
+        PodOfThunderLogoDescription ->
+            [ Text "Un fulmine con le parole “Pod of Thunder” impresse sopra." ]
 
         MDProject ->
             [ Text "progetto GitHub" ]
@@ -403,7 +409,7 @@ translate _ mdString =
             [ Missing ]
 
         -- TODO: Translate
-        SeeAlso { rule } ->
+        SeeAlso _ ->
             [ Missing ]
 
         MustBeMoreThanOrEqualValidationError { min } ->
@@ -524,15 +530,15 @@ translate _ mdString =
             [ Missing ]
 
         -- TODO: Translate
-        DeckLanguage { language } ->
+        DeckLanguage _ ->
             [ Missing ]
 
         -- TODO: Translate
-        DeckAuthor { author } ->
+        DeckAuthor _ ->
             [ Missing ]
 
         -- TODO: Translate
-        DeckTranslator { translator } ->
+        DeckTranslator _ ->
             [ Missing ]
 
         StillPlaying ->
@@ -602,7 +608,7 @@ translate _ mdString =
             [ Missing ]
 
         -- TODO: Translate
-        DefaultLobbyName { owner } ->
+        DefaultLobbyName _ ->
             [ Missing ]
 
         Invite ->
@@ -827,7 +833,7 @@ translate _ mdString =
             ]
 
         -- TODO: Translate
-        AddBlankCards { amount } ->
+        AddBlankCards _ ->
             [ Missing ]
 
         AddDeck ->
@@ -858,6 +864,12 @@ translate _ mdString =
         ManyDecksWhereToGet ->
             [ Missing ]
 
+        PopeStuff ->
+            [ Text "Pope Stuff" ]
+
+        PopeStuffWhereToGet ->
+            [ Text "Puoi trovare ogni tipo di ", ref PopeStuff, Text " qui!" ]
+
         -- TODO: Translate
         JsonAgainstHumanity ->
             [ Missing ]
@@ -874,7 +886,7 @@ translate _ mdString =
             [ Text "Un giocatore" ]
 
         -- TODO: Translate
-        Generated { by } ->
+        Generated _ ->
             [ Missing ]
 
         DeckAlreadyAdded ->
@@ -1140,7 +1152,7 @@ translate _ mdString =
             [ Missing ]
 
         -- TODO: Translate
-        Discarded { player } ->
+        Discarded _ ->
             [ Missing ]
 
         -- Instructions

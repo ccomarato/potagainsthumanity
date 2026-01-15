@@ -51,6 +51,9 @@ translate _ mdString =
         PoTAgainstHumanity ->
             [ Text "PoT Against Humanity" ]
 
+        PodOfThunder ->
+            [ Text "Pod of Thunder" ]
+
         Close ->
             [ Text "Tutup" ]
 
@@ -144,6 +147,9 @@ translate _ mdString =
 
         RereadLogoDescription ->
             [ Text "Sebuah buku yang dilingkari panah daur ulang." ]
+
+        PodOfThunderLogoDescription ->
+            [ Text "Sebuah petir dengan kata-kata “Pod of Thunder” yang terpasang di atasnya." ]
 
         MDProject ->
             [ Text "Proyek Github" ]
@@ -389,7 +395,7 @@ translate _ mdString =
             [ Missing ]
 
         -- TODO: Translate
-        SeeAlso { rule } ->
+        SeeAlso _ ->
             [ Missing ]
 
         MustBeMoreThanOrEqualValidationError { min } ->
@@ -837,6 +843,12 @@ translate _ mdString =
         ManyDecksWhereToGet ->
             [ Text "Anda dapat membuat dan menemukan dek untuk dimainkan ", ref ManyDecks, Text "." ]
 
+        PopeStuff ->
+            [ Text "Pope Stuff" ]
+
+        PopeStuffWhereToGet ->
+            [ Text "Anda dapat menemukan berbagai jenis ", ref PopeStuff, Text " di sini!" ]
+            
         JsonAgainstHumanity ->
             [ Text "JSON Melawan Kemanusiaan" ]
 
@@ -850,7 +862,7 @@ translate _ mdString =
             [ Text "Seorang Player" ]
 
         -- TODO: Translate
-        Generated { by } ->
+        Generated _ ->
             [ Missing ]
 
         DeckAlreadyAdded ->

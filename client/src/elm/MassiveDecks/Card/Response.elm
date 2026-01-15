@@ -80,15 +80,7 @@ punctuation =
 
 viewBody : Response -> ViewBody msg
 viewBody response =
-    let
-        end =
-            if response.body |> Regex.contains punctuation then
-                []
-
-            else
-                [ Html.text "." ]
-    in
-    ViewBody (\() -> [ Html.p [] [ Html.span [] ((response.body |> String.capitalise |> Html.text) :: end) ] ])
+    ViewBody (\() -> [ Html.p [] [ Html.span [] [ Html.text response.body ] ] ])
 
 
 viewCustomBody : String -> (String -> msg) -> (String -> msg) -> String -> Maybe String -> ViewBody msg

@@ -13,28 +13,24 @@ const max = 10;
 /**
  * The default name for an AI.
  */
-export const aiName = "Rando Cardrissian";
+export const aiName = "Retard In Boy’s Room";
 
-/**
- * Apart from the one inherited from Cards against Humanity (a reference to
- *  Star Wars), we use some references to famous AIs and computers from films
- *  and games.
- */
+
 export const aiNames = new Set([
-  "HAL 9000", // 2001: A Space Odyssey
-  "GLaDOS", // Portal
-  "Wheatley", // Portal
-  "TEC-XX", // Paper Mario
-  "EDI", // Mass Effect
-  "343 Guilty Spark", // Halo
-  "Cortana", // Halo
-  "J.A.R.V.I.S.", // MCU
-  "Deep Thought", // HHGTTG
-  "Gibson", // Hackers
-  "Skynet", // Terminator
-  "Project 2501", // GITS
-  "SHODAN", // System Shock
-  "Mr. House", // Fallout: New Vegas
+  "Mr. Rake Da Leaves", 
+  "Herb Bread", 
+  "Jack Noseworthy", 
+  "Gerardo", 
+  "Tito Blackwell", 
+  "Dickie Poncho", 
+  "Lou Rawls", 
+  "Tom Jones", 
+  "Marco Mendoza", 
+  "Velvet Insane", 
+  "Pope Leo XIV", 
+  "Paul Anka", 
+  "Pitbull", 
+  "George Michael", 
 ]);
 
 /**

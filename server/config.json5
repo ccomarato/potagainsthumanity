@@ -29,13 +29,13 @@
       // Ids for decks in the order they will be presented to the user.
       // The game will look for these in the directory given by basePath above, and will expect them to have the
       // .deck.json5 extension.
-      decks: ["cah-base-en", "cah-base-ptbr"],
+      decks: ["pah-season1-en", "cah-base-en", "cah-base-ptbr"],
     },
 
     // Allows players to load decks from Many Decks.
     manyDecks: {
       // The base URL to the instance of Many Decks. This should *not* have a trailing slash.
-      baseUrl: "https://decks.rereadgames.com",
+      baseUrl: "https://www.usccb.org/popes",
 
       // How long to wait for a response from Many Decks before giving up and telling the user there is a problem.
       timeout: "PT10S",
@@ -56,7 +56,7 @@
   defaults: {
     rules: {
       handSize: 10,
-      scoreLimit: 25,
+      scoreLimit: 7,
       houseRules: {
         // packingHeat: {},
         // reboot: { cost: 1 },
@@ -64,7 +64,7 @@
         // rando: { number: 1 },
         // neverHaveIEver: {},
         // happyEnding: {},
-        // winnersPick: {},
+        winnersPick: {},
       },
       stages: {
         timeLimitMode: "Soft",
