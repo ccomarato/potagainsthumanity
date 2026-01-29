@@ -2,7 +2,7 @@
   // In a production environment, be sure to change this value to a random secret for security.
   // You can use `npm run generate-secret` to generate a suitable value.
   // Note that changes to this value will kick all users from all games.
-  secret: "CHANGE ME",
+  secret: "d08b50ebe82f1e53ff5eda538e3e792091f37885a93ae4a31b3acbd423c85a13",
   // This will be overwritten by the environment variable MD_SECRET, if set.
 
   // The port to serve on. Note this should always be behind a reverse proxy.
