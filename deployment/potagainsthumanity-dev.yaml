@@ -1,0 +1,52 @@
+apiVersion: 2021-09-01
+location: northcentralus
+name: potagainsthumanity-dev
+type: Microsoft.ContainerInstance/containerGroups
+properties:
+  osType: Linux
+  restartPolicy: Always
+
+  ipAddress:
+    type: Public
+    ports:
+      - port: 8080
+        protocol: TCP
+      - port: 8081
+        protocol: TCP
+    dnsNameLabel: potagainsthumanity-dev
+
+  containers:
+    - name: server
+      properties:
+        image: whiplashpntz/potagainsthumanity:server-dev
+        resources:
+          requests:
+            cpu: 0.1
+            memoryInGB: 0.5
+        ports:
+          - port: 8081
+        environmentVariables:
+          - name: NODE_ENV
+            value: development
+          - name: PORT
+            value: "8081"
+
+    - name: client
+      properties:
+        image: whiplashpntz/potagainsthumanity:client-dev
+        resources:
+          requests:
+            cpu: 0.1
+            memoryInGB: 0.5
+        ports:
+          - port: 8080
+        environmentVariables:
+          - name: NODE_ENV
+            value: development
+          - name: PORT
+            value: "8080"
+
+  imageRegistryCredentials:
+    - server: index.docker.io
+      username: whiplashpntz
+      password: dckr_pat_jfvCH0CTBwoHhP72pH0jDNN8_ik
