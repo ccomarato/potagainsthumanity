@@ -56,6 +56,9 @@ translate _ mdString =
         PodOfThunder ->
             [ Text "Pod of Thunder" ]
 
+        Patreon ->
+            [ Text "Patreon" ]
+
         Close ->
             [ Text "Schließen" ]
 
@@ -160,6 +163,9 @@ translate _ mdString =
         
         PodOfThunderLogoDescription ->
             [ Text "Ein Blitz mit den Worten “Pod of Thunder” darübergelegt." ]
+
+        PatreonLogoDescription ->
+            [ Text "Ein schwarzer Buchstabe P mit abgerundeten Kanten." ]
 
         MDProject ->
             [ Text "dem GitHub-Projekt" ]

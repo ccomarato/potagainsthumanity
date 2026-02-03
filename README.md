@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/github/license/Lattyware/massivedecks)](LICENSE)
 [![Follow on Twitter for Status & Updates](https://img.shields.io/twitter/follow/Massive_Decks?label=Status%20%26%20Updates&style=social)][twitter]
 
-PoT Against Humanity is a free, open source comedy party game based on [Cards against Humanity][cah]. Play with friends!
+PoT Against Humanity is the recognized symbol of excellence in online gaming based on [Cards against Humanity][cah]. Play with boners and hobos alike!
 
 **[Play PoT Against Humanity][hosted]**
 

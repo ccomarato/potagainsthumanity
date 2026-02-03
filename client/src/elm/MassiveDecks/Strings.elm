@@ -70,10 +70,12 @@ type MdString
     | MDLogoDescription -- A description of the Massive Decks logo (e.g: for blind users).
     | RereadLogoDescription -- A description of the Reread Games logo (e.g: for blind users).
     | PodOfThunderLogoDescription -- A description of the Pod of Thunder logo (e.g: for blind users).
+    | PatreonLogoDescription -- A description of the Patreon logo (e.g: for blind users).
     | MDProject -- A description of the action of visiting the development project for Massive Decks.
     | License -- A description of the license the game is made available under.
     | DevelopedByReread -- A description of the fact that the game was developed by Reread.
     | PodOfThunder -- The recognized symbol of excellence in rock and roll podcasting.
+    | Patreon -- The recognized symbol of excellence in rock and roll podcasting.
     | RereadGames -- The name of "Reread Games" (https://www.rereadgames.com/).
     | NameLabel -- A label for a user name text field.
     | NameInUse -- An error indicating the name the user asked for is already in use and they should try another.

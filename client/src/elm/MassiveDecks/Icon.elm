@@ -13,6 +13,10 @@ potAgainstHumanity : Icon WithoutId
 potAgainstHumanity =
     Definitions.potAgainstHumanity |> Icon.present
 
+patreon : Icon WithoutId
+patreon =
+    Definitions.patreon |> Icon.present
+
 rereadGames : Icon WithoutId
 rereadGames =
     Definitions.rereadGames |> Icon.present

@@ -36,7 +36,7 @@ LABEL org.opencontainers.image.revision=${VCS_REF}
 LABEL org.opencontainers.image.vendor="Webswerve <hobos@webswerve.com>"
 LABEL org.opencontainers.image.licenses="AGPL-3.0+"
 LABEL org.opencontainers.image.title="PoT Against Humanity (Server)"
-LABEL org.opencontainers.image.description="The web server for PoT Against Humanity, a comedy party game."
+LABEL org.opencontainers.image.description="The web server for PoT Against Humanity, the recognized symbol of excellence in online gaming."
 
 WORKDIR /md
 

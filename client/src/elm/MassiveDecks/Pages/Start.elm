@@ -251,16 +251,16 @@ view shared model =
             [ Html.div [ HtmlA.class "logos" ]
                 [ Html.blankA
                     [ HtmlA.class "logo"
-                    , Strings.MDProject |> Lang.title shared
-                    , HtmlA.href "https://github.com/ccomarato/potagainsthumanity"
-                    ]
-                    [ Icon.massiveDecks |> Icon.styled [ Strings.MDLogoDescription |> Lang.alt shared ] |> Icon.view ]
-                , Html.blankA
-                    [ HtmlA.class "logo"
                     , Strings.PodOfThunder |> Lang.title shared
                     , HtmlA.href "https://www.podofthunder.com/"
                     ]
-                    [ Icon.potAgainstHumanity |> Icon.styled [ Strings.RereadLogoDescription |> Lang.alt shared ] |> Icon.view ]
+                    [ Icon.potAgainstHumanity |> Icon.styled [ Strings.MDLogoDescription |> Lang.alt shared ] |> Icon.view ]
+                , Html.blankA
+                    [ HtmlA.class "logo"
+                    , Strings.Patreon |> Lang.title shared
+                    , HtmlA.href "https://www.patreon.com/podofthunder"
+                    ]
+                    [ Icon.patreon |> Icon.styled [ Strings.PatreonLogoDescription |> Lang.alt shared ] |> Icon.view ]
                 ]
             , Html.p [ HtmlA.class "version" ]
                 [ Html.text "\""

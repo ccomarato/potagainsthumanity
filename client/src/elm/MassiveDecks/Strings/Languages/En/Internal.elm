@@ -19,6 +19,9 @@ translate _ mdString =
         PodOfThunder ->
             [ Text "Pod of Thunder" ]
 
+        Patreon ->
+            [ Text "Patreon" ]
+
         Close ->
             [ Text "Close" ]
 
@@ -72,7 +75,7 @@ translate _ mdString =
 
         GameDescription ->
             [ ref PoTAgainstHumanity
-            , Text " is a comedy party game based on "
+            , Text " is the recognized symbol of excellence in online gaming based on "
             , ref CardsAgainstHumanity
             , Text ", developed by "
             , ref RereadGames
@@ -116,6 +119,9 @@ translate _ mdString =
         PodOfThunderLogoDescription ->
             [ Text "A lightning bolt with the words “Pod of Thunder” imposed over it." ]
 
+        PatreonLogoDescription ->
+            [ Text "A black letter P with rounded edges." ]
+
         MDProject ->
             [ Text "the GitHub project" ]
 
@@ -126,7 +132,7 @@ translate _ mdString =
             [ Text "Developed by ", ref RereadGames, Text "." ]
 
         RereadGames ->
-            [ Text "Reread Games" ]
+            [ Text "Webswerve" ]
 
         NameLabel ->
             [ Text "Your Name" ]

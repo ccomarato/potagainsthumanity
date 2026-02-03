@@ -40,6 +40,9 @@ translate _ mdString =
         PodOfThunder ->
             [ Text "Pod of Thunder" ]
 
+        Patreon ->
+            [ Text "Patreon" ]
+
         Close ->
             [ Text "닫기" ]
 
@@ -136,6 +139,9 @@ translate _ mdString =
 
         PodOfThunderLogoDescription ->
             [ Text "“Pod of Thunder”라는 글자가 겹쳐진 번개." ]
+
+        PatreonLogoDescription ->
+            [ Text "둥근 모서리가 있는 검은색 글자 P." ]
 
         MDProject ->
             [ Text "GitHub 프로젝트" ]

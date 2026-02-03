@@ -65,6 +65,9 @@ translate maybeDeclCase mdString =
         PodOfThunder ->
             [ Text "Pod of Thunder" ]
 
+        Patreon ->
+            [ Text "Patreon" ]
+
         Close ->
             [ Text "Zamknij" ]
 
@@ -136,6 +139,9 @@ translate maybeDeclCase mdString =
 
         PodOfThunderLogoDescription ->
             [ Text "Błyskawica z napisem „Pod of Thunder” na niej." ]
+
+        PatreonLogoDescription ->
+            [ Text "Czarna litera P z zaokrąglonymi krawędziami." ]
 
         MDProject ->
             [ Text

@@ -220,6 +220,9 @@ enhanceHtml shared context mdString unenhanced =
 
         PodOfThunder ->
             [ Html.blankA [ HtmlA.class "no-wrap", HtmlA.href "https://www.podofthunder.com/" ] unenhanced ]
+
+        Patreon ->
+            [ Html.blankA [ HtmlA.class "no-wrap", HtmlA.href "https://www.patreon.com/podofthunder" ] unenhanced ]
             
         RereadGames ->
             [ Html.blankA [ HtmlA.class "no-wrap", HtmlA.href "https://www.rereadgames.com/" ] unenhanced ]
