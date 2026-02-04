@@ -52,4 +52,8 @@ LABEL org.opencontainers.image.title="PoT Against Humanity (Client)"
 LABEL org.opencontainers.image.description="The web client for PoT Against Humanity, the recognized symbol of excellence in online gaming."
 
 COPY --from=static ["/", "/usr/share/nginx/html/"]
-COPY ["./nginx.conf", "/etc/nginx/nginx.conf"]
+COPY ["./nginx.conf", "/etc/nginx/nginx.conf.template"]
+COPY ["./docker-entrypoint.sh", "/"]
+RUN chmod +x /docker-entrypoint.sh
+
+ENTRYPOINT ["/docker-entrypoint.sh"]

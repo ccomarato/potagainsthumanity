@@ -39,7 +39,7 @@
           "containers": [
             {
               "name": "server",
-              "image": "whiplashpntz/potagainsthumanity:server-latest-prerelease",
+              "image": "whiplashpntz/potagainsthumanity:server-latest",
               "resources": {
                 "cpu": 0.5,
                 "memory": "1Gi"
@@ -53,11 +53,17 @@
             },
             {
               "name": "client",
-              "image": "whiplashpntz/potagainsthumanity:client-latest-prerelease",
+              "image": "whiplashpntz/potagainsthumanity:client-latest",
               "resources": {
                 "cpu": 0.5,
                 "memory": "1Gi"
-              }
+              },
+              "env": [
+                {
+                  "name": "UPSTREAM_HOST",
+                  "value": "localhost:8081"
+                }
+              ]
             }
           ],
           "scale": {
