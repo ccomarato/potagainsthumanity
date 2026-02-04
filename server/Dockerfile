@@ -5,7 +5,7 @@ ARG VCS_REF=unknown
 ARG VERSION=${VCS_REF}-dev
 
 
-FROM --platform=$BUILDPLATFORM node:${NODE_VERSION}-alpine AS build
+FROM node:${NODE_VERSION}-alpine AS build
 
 WORKDIR /md
 
@@ -24,9 +24,9 @@ ARG BUILD_DATE
 ARG VCS_REF
 ARG MODE
 
-ENV MD_CONFIG_PATH="config.json5"
-ENV MD_VERSION=${VERSION}
-ENV NODE_ENV=${MODE}
+ENV MD_CONFIG_PATH="config.json5" \
+    MD_VERSION=${VERSION} \
+    NODE_ENV=${MODE}
 
 LABEL org.opencontainers.image.created=${BUILD_DATE}
 LABEL org.opencontainers.image.url="https://github.com/ccomarato/potagainsthumanity"

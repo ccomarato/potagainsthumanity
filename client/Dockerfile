@@ -5,7 +5,7 @@ ARG VCS_REF=unknown
 ARG VERSION=${VCS_REF}-dev
 
 
-FROM --platform=$BUILDPLATFORM node:${NODE_VERSION}-alpine AS build
+FROM node:${NODE_VERSION}-alpine AS build
 
 ARG VERSION
 ARG MODE
@@ -14,8 +14,8 @@ WORKDIR /md
 
 RUN ["apk", "add", "--no-cache", "python3", "make", "g++"]
 
-ENV MD_VERSION ${VERSION}
-ENV WEBPACK_MODE ${MODE}
+ENV MD_VERSION=${VERSION} \
+    WEBPACK_MODE=${MODE}
 
 COPY ["./elm-material/package.json", "./elm-material/package-lock.json", "./"]
 COPY ["./package.json", "./package-lock.json", "./"]
@@ -33,7 +33,7 @@ FROM scratch AS static
 COPY --from=build ["/md/dist", "/"]
 
 
-FROM --platform=$TARGETPLATFORM nginx:mainline-alpine AS nginx
+FROM nginx:mainline-alpine AS nginx
 
 ARG VERSION
 ARG BUILD_DATE

@@ -37,21 +37,20 @@ function "generateVersionTags" {
 function "repos" {
     params = []
     result = [
-        "ghcr.io/lattyware/massivedecks/",
-        "massivedecks/"
+        "whiplashpntz/potagainsthumanity"
     ]
 }   
     
 function "generateTags" {
     params = [component]
     result = flatten([
-        for repo in repos(): [ for tag in flatten(["${VCS_REF}-dev", generateVersionTags(splitSemVer(VERSION)), "latest"]) : "${repo}${component}:${tag}" ]
+        for repo in repos(): [ for tag in flatten(["${VCS_REF}-dev", generateVersionTags(splitSemVer(VERSION)), "latest"]) : "${repo}:${component}-${tag}" ]
     ])
 }
 
 target "build" {
     dockerfile = "./Dockerfile"
-    platforms = ["linux/amd64", "linux/arm64"]
+    platforms = ["linux/amd64"]
     output = ["type=docker"]
     pull = true
     args = {
