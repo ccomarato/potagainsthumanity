@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "_fonts";
 @use "cards/_size";
 @use "cards/_sources";
@@ -6,8 +7,8 @@
 
 @mixin shadow($color: #000000) {
   .side {
-    box-shadow: 0.15em 0.15em 0.4em transparentize($color, 0.7),
-      -0.05em -0.05em 0.4em transparentize($color, 0.7);
+    box-shadow: 0.15em 0.15em 0.4em color.adjust($color, $alpha: -0.7),
+      -0.05em -0.05em 0.4em color.adjust($color, $alpha: -0.7);
   }
 }
 

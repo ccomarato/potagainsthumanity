@@ -437,7 +437,7 @@ translate _ mdString =
             [ Text "Lingua" ]
 
         MissingLanguage ->
-            [ Text "Non vedi la tua lingua? ", ref TranslationBeg ]
+            [ Text "Seleziona la tua lingua." ]
 
         AutonymFormat { autonym } ->
             [ Text "(", Text autonym, Text ")" ]

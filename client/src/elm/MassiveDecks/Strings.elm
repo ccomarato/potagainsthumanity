@@ -139,7 +139,7 @@ type MdString
       -- Settings
     | SettingsTitle -- The title for the settings panel.
     | LanguageSetting -- The label for the "Language" setting.
-    | MissingLanguage -- A question asking if the user doesn't see the language they want.
+    | MissingLanguage -- A question asking the user to select their language.
     | AutonymFormat { autonym : String } -- How to format the name for a language in that language (e.g: in brackets).
     | TranslationBeg -- A request for help translating the game.
     | CardSizeSetting -- The label for the "Card Size" setting.

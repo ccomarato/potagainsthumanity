@@ -462,7 +462,7 @@ translate maybeDeclCase mdString =
             [ Text "Język" ]
 
         MissingLanguage ->
-            [ Text "Nie widzisz swojego języka na liście? ", ref TranslationBeg ]
+            [ Text "Wybierz swój język." ]
 
         AutonymFormat { autonym } ->
             [ Text "(", Text autonym, Text ")" ]

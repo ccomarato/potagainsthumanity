@@ -202,7 +202,7 @@ settings =
         |> Json.required "compactCards" cardSize
         |> Json.optional "speech" speech Speech.default
         |> Json.optional "notifications" notifications Notifications.default
-        |> Json.optional "autoAdvance" (Json.bool |> Json.map Just) Nothing
+        |> Json.optional "autoAdvance" (Json.bool |> Json.map Just) (Just True)
 
 
 notifications : Json.Decoder Notifications.Settings

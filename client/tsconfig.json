@@ -4,6 +4,7 @@
     "target": "es6",
     "noImplicitAny": true,
     "preserveConstEnums": true,
+    "isolatedModules": false,
     "outDir": "dist",
     "strict": true,
     "sourceMap": true,

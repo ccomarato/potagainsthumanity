@@ -402,7 +402,7 @@ translate _ mdString =
             [ Text "언어" ]
 
         MissingLanguage ->
-            [ Text "당신의 언어가 안 보이세요?", ref TranslationBeg ]
+            [ Text "언어를 선택하세요." ]
 
         AutonymFormat { autonym } ->
             [ Text "(", Text autonym, Text ")" ]

@@ -80,7 +80,7 @@ defaults =
     , cardSize = Full
     , speech = Speech.default
     , notifications = Notifications.default
-    , autoAdvance = Nothing
+    , autoAdvance = Just True
     }
 
 

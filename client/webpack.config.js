@@ -124,6 +124,7 @@ module.exports = (env, argv) => {
             {
               loader: "sass-loader",
               options: {
+                api: "modern",
                 implementation: sass,
                 sourceMap: true,
                 sassOptions: {
@@ -213,6 +214,12 @@ module.exports = (env, argv) => {
       hot: true,
       host: inDocker ? "0.0.0.0" : "localhost",
       allowedHosts: ["localhost"],
+      client: {
+        overlay: {
+          warnings: false,
+          errors: true,
+        },
+      },
       proxy: {
         // Forward to the server.
         "/api/**": {

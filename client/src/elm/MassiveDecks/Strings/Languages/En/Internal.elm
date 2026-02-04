@@ -99,7 +99,7 @@ translate _ mdString =
             [ Text "Join" ]
 
         JoinPrivateGameDescription ->
-            [ Text "Join a game some boner invited you to:" ]
+            [ Text "Join a game of ", ref PoTAgainstHumanity, Text ":" ]
 
         PlayGame ->
             [ Text "Play" ]
@@ -382,7 +382,7 @@ translate _ mdString =
             [ Text "Language" ]
 
         MissingLanguage ->
-            [ Text "Don’t see your language? ", ref TranslationBeg ]
+            [ Text "Select your language." ]
 
         AutonymFormat { autonym } ->
             [ Text "(", Text autonym, Text ")" ]
@@ -471,7 +471,7 @@ translate _ mdString =
             [ Text "Give this game code to other boners and they can join the game." ]
 
         GameCodeHowToAcquire ->
-            [ Text "Ask the boner who invited you for the game’s ", ref GameCodeTerm, Text "." ]
+            [ Text "Ask the boner who invited you for the ", ref GameCodeTerm, Text "." ]
 
         Deck ->
             [ Text "Deck" ]

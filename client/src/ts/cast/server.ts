@@ -14,11 +14,9 @@ class Server {
     // TypeScript gets confused about the sender and receiver frameworks overlapping, force it to the right one.
     const framework = cast.framework as unknown as typeof frameworkNs;
 
-    const EventType = framework.system.EventType;
-
     const context = framework.CastReceiverContext.getInstance();
 
-    context.addEventListener(EventType.ERROR, (event: any) => {
+    context.addEventListener(framework.system.EventType.ERROR, (event: any) => {
       console.error(event);
     });
 
@@ -30,7 +28,7 @@ class Server {
       // Do nothing on the pong.
     });
 
-    context.addEventListener(EventType.SENDER_CONNECTED, (event: any) => {
+    context.addEventListener(framework.system.EventType.SENDER_CONNECTED, (event: any) => {
       const senderConnected = event as framework.system.SenderConnectedEvent;
       setInterval(() => {
         context.sendCustomMessage(
