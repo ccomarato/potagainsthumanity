@@ -1,0 +1,24 @@
+networks:
+  internal:
+services:
+  server:
+    image: whiplashpntz/potagainsthumanity:server-latest
+    networks:
+      - internal
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      - NODE_ENV=production
+
+  client:
+    image: whiplashpntz/potagainsthumanity:client-latest
+    ports:
+      - "8080:8080"
+      - "80:8080"
+      - "443:8080"
+    networks:
+      - internal
+    restart: unless-stopped
+    depends_on:
+      - server
