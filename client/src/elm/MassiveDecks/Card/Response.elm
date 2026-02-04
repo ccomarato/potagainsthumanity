@@ -16,7 +16,9 @@ import MassiveDecks.Model exposing (Shared)
 import MassiveDecks.Pages.Lobby.Configure.Decks as Decks
 import MassiveDecks.Pages.Lobby.Configure.Model exposing (Config)
 import MassiveDecks.Util.String as String
+{-
 import Regex exposing (Regex)
+-}
 
 
 {-| Render the response to HTML.
@@ -72,11 +74,14 @@ viewCustom shared config side update canonicalize attributes response fill =
 {- Private -}
 
 
+{- NOT IMPLEMENTED YET - COMMENTED OUT BY CC, 2026-02-04
+
 punctuation : Regex
 punctuation =
     -- TODO: This should probably get localized.
     Regex.fromString "[.?!]$" |> Maybe.withDefault Regex.never
 
+-}
 
 viewBody : Response -> ViewBody msg
 viewBody response =

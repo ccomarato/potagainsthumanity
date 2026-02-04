@@ -22,9 +22,9 @@ services:
     # See the postgres image's documentation for more on configuring it.
     # https://hub.docker.com/_/postgres
     environment:
-      - POSTGRES_USER=massivedecks
+      - POSTGRES_USER=potagainsthumanity
       # This should be changed to a secret value, matched to the config.
-      - POSTGRES_PASSWORD=CHANGE ME
+      - POSTGRES_PASSWORD=yW5=.:;kGT6,R9#)>}
     networks:
       - internal
     volumes:
@@ -34,7 +34,7 @@ services:
   server:
     # Pick your tag wisely for stability. In general, it's best to specify an exact version by commit hash and update manually.
     # Versioned tags are also provided, in order of stability: by version number (major "x", minor "x.y", and patch "x.y.z"), latest-release, latest-prerelease, or latest (head of main).
-    image: "ghcr.io/lattyware/massivedecks/server:latest-release"
+    image: "docker.io/whiplashpntz/postagainsthumanity/server:latest-release"
     depends_on:
       - storage
     environment:
@@ -48,7 +48,7 @@ services:
 
   client:
     # Make sure you always deploy the exact same tag as the server and pull both at the same time.
-    image: "ghcr.io/lattyware/massivedecks/client:latest-release"
+    image: "docker.io/whiplashpntz/postagainsthumanity/client:latest-release"
     depends_on:
       - server
     ports:

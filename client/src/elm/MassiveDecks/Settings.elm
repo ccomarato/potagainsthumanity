@@ -39,7 +39,7 @@ import MassiveDecks.Strings as Strings
 import MassiveDecks.Strings.Languages as Lang
 import MassiveDecks.Strings.Languages.Model as Lang exposing (Language)
 import MassiveDecks.Util.Maybe as Maybe
-import MassiveDecks.Util.NeList as NeList exposing (NeList(..))
+import MassiveDecks.Util.NeList exposing (NeList(..))
 import MassiveDecks.Util.Order as Order
 import Material.IconButton as IconButton
 import Material.Select as Select
