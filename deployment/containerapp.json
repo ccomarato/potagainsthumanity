@@ -1,0 +1,71 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.App/containerApps",
+      "apiVersion": "2023-05-01",
+      "name": "potagainsthumanity",
+      "location": "northcentralus",
+      "properties": {
+        "environmentId": "/subscriptions/bd796e72-a429-47a2-b9bc-7000b4162718/resourceGroups/PoT/providers/Microsoft.App/managedEnvironments/pot-env",
+        "configuration": {
+          "activeRevisionsMode": "Single",
+          "ingress": {
+            "external": true,
+            "targetPort": 8080,
+            "traffic": [
+              {
+                "weight": 100,
+                "latestRevision": true
+              }
+            ]
+          },
+          "registries": [
+            {
+              "server": "docker.io",
+              "username": "whiplashpntz",
+              "passwordSecretRef": "dockerio-password"
+            }
+          ],
+          "secrets": [
+            {
+              "name": "dockerio-password",
+              "value": "dckr_pat_jfvCH0CTBwoHhP72pH0jDNN8_ik"
+            }
+          ]
+        },
+        "template": {
+          "containers": [
+            {
+              "name": "server",
+              "image": "whiplashpntz/potagainsthumanity:server-latest-prerelease",
+              "resources": {
+                "cpu": 0.5,
+                "memory": "1Gi"
+              },
+              "env": [
+                {
+                  "name": "NODE_ENV",
+                  "value": "production"
+                }
+              ]
+            },
+            {
+              "name": "client",
+              "image": "whiplashpntz/potagainsthumanity:client-latest-prerelease",
+              "resources": {
+                "cpu": 0.5,
+                "memory": "1Gi"
+              }
+            }
+          ],
+          "scale": {
+            "minReplicas": 1,
+            "maxReplicas": 1
+          }
+        }
+      }
+    }
+  ]
+}

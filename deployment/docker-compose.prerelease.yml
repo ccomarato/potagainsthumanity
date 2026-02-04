@@ -1,0 +1,14 @@
+services:
+  server:
+    image: whiplashpntz/potagainsthumanity:server-latest-prerelease
+    ports:
+      - "8081:8081"
+    environment:
+      - NODE_ENV=production
+
+  client:
+    image: whiplashpntz/potagainsthumanity:client-latest-prerelease
+    ports:
+      - "8080:8080"
+    depends_on:
+      - server
