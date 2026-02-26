@@ -1,6 +1,8 @@
 /* eslint-disable */
-import { default as Ajv } from "ajv";
-import { default as addFormats } from "ajv-formats";
+import * as AjvModule from "ajv";
+const AjvCtor: any = (AjvModule as any).default ?? AjvModule;
+import * as addFormatsModule from "ajv-formats";
+const addFormats: any = (addFormatsModule as any).default ?? addFormatsModule;
 
 import type {
   Action,
@@ -10,14 +12,13 @@ import type {
   RegisterUser,
 } from "./validation.js";
 
-export const ajv = new Ajv({
+export const ajv = new AjvCtor({
   allErrors: false,
   coerceTypes: false,
   useDefaults: true,
 });
 addFormats(ajv, { mode: "full" });
-
-export { RegisterUser, CreateLobby, Action, CheckAlive, PublicConfig };
+export type { RegisterUser, CreateLobby, Action, CheckAlive, PublicConfig };
 export const Schema = {
   $schema: "http://json-schema.org/draft-07/schema#",
   definitions: {
@@ -545,11 +546,11 @@ export const Schema = {
     },
     PackingHeat: {
       $ref: "#/definitions/PackingHeat_1",
-      description: 'Configuration for the "Packing Heat" house rule.',
+      description: 'Configuration for the "Packing a Blackjack" house rule.',
     },
     PackingHeat_1: {
       additionalProperties: false,
-      description: 'Configuration for the "Packing Heat" house rule.',
+      description: 'Configuration for the "Packing a Blackjack" house rule.',
       type: "object",
     },
     Patch: {

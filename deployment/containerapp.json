@@ -4,7 +4,7 @@
   "resources": [
     {
       "type": "Microsoft.App/containerApps",
-      "apiVersion": "2023-05-01",
+      "apiVersion": "2022-01-01-preview",
       "name": "potagainsthumanity",
       "location": "northcentralus",
       "properties": {
@@ -14,6 +14,13 @@
           "ingress": {
             "external": true,
             "targetPort": 8080,
+            "customDomains": [
+              {
+                "bindingType": "SniEnabled",
+                "certificateId": "/subscriptions/bd796e72-a429-47a2-b9bc-7000b4162718/resourceGroups/PoT/providers/Microsoft.App/managedEnvironments/pot-env/managedCertificates/pot.webswerve.com-pot-env-260204211626",
+                "name": "pot.webswerve.com"
+              }
+            ],
             "traffic": [
               {
                 "weight": 100,
@@ -39,7 +46,7 @@
           "containers": [
             {
               "name": "server",
-              "image": "whiplashpntz/potagainsthumanity:server-latest",
+              "image": "whiplashpntz/potagainsthumanity:server-0.1.2",
               "resources": {
                 "cpu": 0.5,
                 "memory": "1Gi"
@@ -53,7 +60,7 @@
             },
             {
               "name": "client",
-              "image": "whiplashpntz/potagainsthumanity:client-latest",
+              "image": "whiplashpntz/potagainsthumanity:client-0.1.2",
               "resources": {
                 "cpu": 0.5,
                 "memory": "1Gi"

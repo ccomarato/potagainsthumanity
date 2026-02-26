@@ -1,4 +1,6 @@
-import { AxiosRequestConfig, default as Axios } from "axios";
+import * as AxiosModule from "axios";
+const Axios: any = (AxiosModule as any).default ?? AxiosModule;
+import type { AxiosRequestConfig } from "axios";
 
 import type * as Config from "../../../config.js";
 import { SourceNotFoundError } from "../../../errors/action-execution-error.js";

@@ -89,7 +89,7 @@ export interface Stages {
 }
 
 /**
- * Configuration for the "Packing Heat" house rule.
+ * Configuration for the "Packing a Blackjack" house rule.
  */
 export interface PackingHeat {}
 
@@ -133,8 +133,8 @@ export interface ComedyWriter {
 export interface NeverHaveIEver {}
 
 /**
- * Configuration for the "Winner's Pick" house rule.
- * This rule makes the winner of each round the czar for the next round.
+ * Configuration for the "Head Hobo's Pick" house rule.
+ * This rule makes the winner of each round the Head Hobo for the next round.
  */
 export interface WinnersPick {}
 

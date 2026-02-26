@@ -1,9 +1,6 @@
-import {
-  AxiosError,
-  AxiosInstance,
-  AxiosRequestConfig,
-  default as Axios,
-} from "axios";
+import * as AxiosModule from "axios";
+const Axios: any = (AxiosModule as any).default ?? AxiosModule;
+import type { AxiosError, AxiosInstance, AxiosRequestConfig } from "axios";
 import genericPool from "generic-pool";
 import HttpStatus from "http-status-codes";
 import JSON5 from "json5";

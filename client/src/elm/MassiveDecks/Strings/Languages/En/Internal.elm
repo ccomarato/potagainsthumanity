@@ -75,15 +75,13 @@ translate _ mdString =
 
         GameDescription ->
             [ ref PoTAgainstHumanity
-            , Text " is the recognized symbol of excellence in online gaming based on "
+            , Text " is the recognized symbol of excellence in online gaming inspired by "
+            , ref PodOfThunder
+            , Text ", the recognized symbol of excellence in rock and roll podcasting, and "
             , ref CardsAgainstHumanity
-            , Text ", developed by "
-            , ref RereadGames
-            , Text " and other contributors—the game is open source under "
-            , ref License
-            , Text ", so you can help improve the game, access the source code, or just find out more at "
+            , Text ". It was developed by a hobo from the Republic of Podthundistan as a heavily bastardized fork of  "
             , ref MDProject
-            , Text "."
+            , Text " Massive Decks."
             ]
 
         NewGame ->
@@ -163,7 +161,7 @@ translate _ mdString =
             [ Text "Cards Against Humanity" ]
 
         Rules ->
-            [ Text "How to play." ]
+            [ Text "How to play:" ]
 
         RulesHand ->
             [ Text "Each player has a hand of ", ref (nounUnknownQuantity Response), Text "." ]
@@ -171,7 +169,7 @@ translate _ mdString =
         RulesCzar ->
             [ Text "The first player begins as the "
             , ref Czar
-            , Text ". the "
+            , Text ". The "
             , ref Czar
             , Text " reads the question or fill-in-the-blank phrase on the "
             , ref (noun Call 1)
@@ -185,15 +183,15 @@ translate _ mdString =
             ]
 
         RulesJudging ->
-            [ Text "The answers are then shuffled and the "
+            [ Text "The answers are then shuffled, and the "
             , ref Czar
-            , Text " reads them out to the other players—for full effect, the "
+            , Text " reads them out to the other players. For full effect, it is suggested that the "
             , ref Czar
-            , Text " should usually re-read the "
+            , Text " reread the "
             , ref (noun Call 1)
             , Text " before presenting each answer. The "
             , ref Czar
-            , Text " then picks the funniest play, and whoever played it gets one "
+            , Text " then picks the funniest answer, and the player who played it gets one "
             , ref (noun Point 1)
             , Text "."
             ]
@@ -202,7 +200,9 @@ translate _ mdString =
             [ ref (Pick { numberOfCards = 2 }) ]
 
         RulesPick ->
-            [ Text "Some cards will need more than one "
+            [ Text "Some "
+            , ref (nounUnknownQuantity Call)
+            , Text " will need more than one "
             , ref (noun Response 1)
             , Text " as an answer. Play the cards in the order the "
             , ref Czar
@@ -223,7 +223,7 @@ translate _ mdString =
             , ref (nounUnknownQuantity Response)
             , Text "—these will say "
             , ref (Draw { numberOfCards = 2 })
-            , Text " or more, and you’ll get that many extra cards before you play."
+            , Text " or more, and the player will receive that many extra cards before playing."
             ]
 
         GameRulesTitle ->
@@ -238,7 +238,7 @@ translate _ mdString =
             ]
 
         HouseRuleReboot ->
-            [ Text "Rebooting the Universe" ]
+            [ Text "The Crackdown" ]
 
         HouseRuleRebootDescription { cost } ->
             [ Text "At any time, players may trade in "
@@ -262,7 +262,7 @@ translate _ mdString =
             [ Text "How many ", ref (nounUnknownQuantity Point), Text " it costs to redraw." ]
 
         HouseRulePackingHeat ->
-            [ Text "Packing Heat" ]
+            [ Text "Packing a Blackjack" ]
 
         HouseRulePackingHeatDescription ->
             [ Text "Any "
@@ -302,13 +302,13 @@ translate _ mdString =
             ]
 
         HouseRuleRandoCardrissian ->
-            [ Text "Rando Cardrissian" ]
+            [ Text "Retard in Boy's Room" ]
 
         HouseRuleRandoCardrissianDescription ->
             [ Text "Every round, the first "
             , ref (noun Response 1)
             , Text " in the deck will be played as an answer. This play belongs to an AI player named "
-            , Text "Rando Cardrissian, and if he wins the game, all players go home in a state of everlasting shame."
+            , Text "Retard in Boy's Room, and if he wins the game, all players go home in a state of everlasting shame."
             ]
 
         HouseRuleRandoCardrissianNumber ->
@@ -321,8 +321,8 @@ translate _ mdString =
             [ Text "Never Have I Ever" ]
 
         HouseRuleNeverHaveIEverDescription ->
-            [ Text "At any time, a player may discard cards they don't understand, however, they must confess their "
-            , Text "ignorance: the card is shared publicly."
+            [ Text "At any time, a player may discard cards that they don't understand; however, they must confess their "
+            , Text "ignorance, and the card is shared publicly."
             ]
 
         HouseRuleHappyEnding ->
@@ -355,7 +355,7 @@ translate _ mdString =
             [ Text "If the ", ref Czar, Text " can write custom calls. This takes up one of the choices." ]
 
         HouseRuleWinnersPick ->
-            [ Text "Winner's Pick" ]
+            [ Text "Head Hobo's Pick" ]
 
         HouseRuleWinnersPickDescription ->
             [ Text "The winner of each round becomes the ", ref Czar, Text " for the next round." ]
@@ -444,7 +444,7 @@ translate _ mdString =
 
         -- Terms
         Czar ->
-            [ Text "Card Czar" ]
+            [ Text "Head Hobo" ]
 
         CzarDescription ->
             [ Text "The player judging the round." ]

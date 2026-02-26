@@ -1,7 +1,8 @@
 import "express-async-errors";
 
 import bodyParser from "body-parser";
-import express, { NextFunction, Request, Response } from "express";
+import express from "express";
+import type { NextFunction, Request, Response } from "express";
 import expressWinston from "express-winston";
 import ws from "express-ws";
 import { promises as fs } from "fs";

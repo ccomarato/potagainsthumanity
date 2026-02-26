@@ -297,7 +297,7 @@ translate _ mdString =
             [ Text "Berapa banyak ", ref (nounUnknownQuantity Point), Text " biaya untuk mengambil ulang." ]
 
         HouseRulePackingHeat ->
-            [ Text "Packing Heat" ]
+            [ Text "Packing a Blackjack" ]
 
         HouseRulePackingHeatDescription ->
             [ Text "apapun "
