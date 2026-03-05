@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "0.1.3",
+  "contentVersion": "0.1.4",
   "resources": [
     {
       "type": "Microsoft.App/containerApps",
@@ -8,7 +8,7 @@
       "name": "potagainsthumanity",
       "location": "northcentralus",
       "properties": {
-        "revisionSuffix": "v0-1-3",
+        "revisionSuffix": "v0-1-4",
         "environmentId": "/subscriptions/bd796e72-a429-47a2-b9bc-7000b4162718/resourceGroups/PoT/providers/Microsoft.App/managedEnvironments/pot-env",
         "configuration": {
           "maxInactiveRevisions": 1,
@@ -48,7 +48,7 @@
           "containers": [
             {
               "name": "server",
-              "image": "whiplashpntz/potagainsthumanity:server-0.1.3",
+              "image": "whiplashpntz/potagainsthumanity:server-0.1.4",
               "resources": {
                 "cpu": 0.5,
                 "memory": "1Gi"
@@ -62,7 +62,7 @@
             },
             {
               "name": "client",
-              "image": "whiplashpntz/potagainsthumanity:client-0.1.3",
+              "image": "whiplashpntz/potagainsthumanity:client-0.1.4",
               "resources": {
                 "cpu": 0.5,
                 "memory": "1Gi"
