@@ -15,22 +15,22 @@ const max = 10;
  */
 export const aiName = "Retard In Boy’s Room";
 
-
 export const aiNames = new Set([
-  "Mr. Rake Da Leaves", 
-  "Herb Bread", 
-  "Jack Noseworthy", 
-  "Gerardo", 
-  "Tito Blackwell", 
-  "Dickie Poncho", 
-  "Lou Rawls", 
-  "Tom Jones", 
-  "Marco Mendoza", 
-  "Velvet Insane", 
-  "Pope Leo XIV", 
-  "Paul Anka", 
-  "Pitbull", 
-  "George Michael", 
+  "Mr. Rake Da Leaves",
+  "Herb Bread",
+  "Jack Noseworthy",
+  "Gerardo",
+  "Tito Blackwell",
+  "Dickie Poncho",
+  "Lou Rawls",
+  "Tom Jones",
+  "Marco Mendoza",
+  "Velvet Insane",
+  "Pope Leo XIV",
+  "Paul Anka",
+  "Pitbull",
+  "George Michael",
+  "Raymundo",
 ]);
 
 /**
