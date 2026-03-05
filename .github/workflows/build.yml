@@ -23,6 +23,7 @@ jobs:
           submodules: true
 
       - name: Get version from tag.
+        id: tag
         uses: little-core-labs/get-git-tag@v3.0.2
 
       - name: Get build date/time.
@@ -59,5 +60,5 @@ jobs:
             "*.output=type=registry"
         env:
           VCS_REF: ${{ github.sha }}
-          VERSION: ${{ env.GIT_TAG_NAME }}
+          VERSION: ${{ steps.tag.outputs.tag }}
           BUILD_DATE: ${{ steps.date.outputs.date }}
