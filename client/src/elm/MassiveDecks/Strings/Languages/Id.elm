@@ -1020,7 +1020,7 @@ translate _ mdString =
             [ Text "Berapa lama waktu (dalam detik) untuk menunggu setelah satu putaran berakhir sebelum memulai putaran berikutnya." ]
 
         RevealingEnabledTitle ->
-            [ Text "Czar Reveals Plays" ]
+            [ Text "Head Hobo Reveals Plays" ]
 
         RevealingEnabled ->
             [ Text "Jika ini diaktifkan,  "

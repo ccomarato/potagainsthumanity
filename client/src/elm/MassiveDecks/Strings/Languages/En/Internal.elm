@@ -36,7 +36,7 @@ translate _ mdString =
                             [ Text "White Card" ]
 
                         Point ->
-                            [ Text "Awesome Point" ]
+                            [ Text "Boner Point" ]
 
                         Player ->
                             [ Text "Player" ]
@@ -984,7 +984,7 @@ translate _ mdString =
             [ Text "How much time (in seconds) to wait after one round ends before starting the next one." ]
 
         RevealingEnabledTitle ->
-            [ Text "Czar Reveals Plays" ]
+            [ Text "Head Hobo Reveals Plays" ]
 
         RevealingEnabled ->
             [ Text "If this is enabled, the "

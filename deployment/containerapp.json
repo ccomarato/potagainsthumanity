@@ -4,11 +4,10 @@
   "resources": [
     {
       "type": "Microsoft.App/containerApps",
-      "apiVersion": "2025-01-01",
+      "apiVersion": "2023-05-01",
       "name": "potagainsthumanity",
       "location": "northcentralus",
       "properties": {
-        "revisionSuffix": "v0-1-4",
         "environmentId": "/subscriptions/bd796e72-a429-47a2-b9bc-7000b4162718/resourceGroups/PoT/providers/Microsoft.App/managedEnvironments/pot-env",
         "configuration": {
           "maxInactiveRevisions": 1,
@@ -45,6 +44,7 @@
           ]
         },
         "template": {
+          "revisionSuffix": "v0-1-4",
           "containers": [
             {
               "name": "server",
