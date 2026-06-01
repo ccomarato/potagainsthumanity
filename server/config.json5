@@ -86,12 +86,12 @@
     public: false,
     audienceMode: false,
     decks: [
-      // {
-      //   // A built-in deck.
-      //   source: "BuiltIn",
-      //   // The id (filename without `.deck.json5`.
-      //   id: "cah-base-en",
-      // },
+      {
+        // A built-in deck.
+        source: "BuiltIn",
+        // The id (filename without `.deck.json5`.
+        id: "pah-season1-en",
+      },
       // {
       //   // A deck from JSON Against Humanity
       //   source: "JAH",
