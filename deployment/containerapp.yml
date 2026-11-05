@@ -1,9 +1,14 @@
 environmentId: /subscriptions/bd796e72-a429-47a2-b9bc-7000b4162718/resourceGroups/PoT/providers/Microsoft.App/managedEnvironments/pot-env
 configuration:
+  maxInactiveRevisions: 1
   activeRevisionsMode: Single
   ingress:
     external: true
     targetPort: 8080
+    customDomains:
+    - name: pot.webswerve.com
+      bindingType: SniEnabled
+      certificateId: /subscriptions/bd796e72-a429-47a2-b9bc-7000b4162718/resourceGroups/PoT/providers/Microsoft.App/managedEnvironments/pot-env/managedCertificates/pot.webswerve.com-pot-env-260204211626
     traffic:
     - weight: 100
       latestRevision: true
@@ -11,12 +16,11 @@ configuration:
   - server: docker.io
     username: whiplashpntz
     passwordSecretRef: dockerio-password
-  secrets:
-  - name: dockerio-password
 template:
+  revisionSuffix: v0-1-5
   containers:
   - name: server
-    image: whiplashpntz/potagainsthumanity:server-latest-prerelease
+    image: whiplashpntz/potagainsthumanity:server-0.1.5
     resources:
       cpu: 0.5
       memory: 1.0Gi
@@ -24,10 +28,13 @@ template:
     - name: NODE_ENV
       value: production
   - name: client
-    image: whiplashpntz/potagainsthumanity:client-latest-prerelease
+    image: whiplashpntz/potagainsthumanity:client-0.1.5
     resources:
       cpu: 0.5
       memory: 1.0Gi
+    env:
+    - name: UPSTREAM_HOST
+      value: localhost:8081
   scale:
-    minReplicas: 1
+    minReplicas: 0
     maxReplicas: 1
