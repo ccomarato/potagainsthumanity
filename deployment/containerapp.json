@@ -1,6 +1,14 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "0.1.4",
+  "parameters": {
+    "dockerioPassword": {
+      "type": "secureString",
+      "metadata": {
+        "description": "Docker Hub personal access token for pulling images. Pass at deploy time with --parameters; never commit the value."
+      }
+    }
+  },
   "resources": [
     {
       "type": "Microsoft.App/containerApps",
@@ -38,7 +46,8 @@
           ],
           "secrets": [
             {
-              "name": "dockerio-password"
+              "name": "dockerio-password",
+              "value": "[parameters('dockerioPassword')]"
             }
           ]
         },
