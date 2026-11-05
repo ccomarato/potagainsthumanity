@@ -176,7 +176,7 @@ translate maybeDeclCase mdString =
             [ Text "Rozwijane przez ", ref RereadGames, Text "." ]
 
         RereadGames ->
-            [ Text "Reread Games" ]
+            [ Text "Webswerve" ]
 
         NameLabel ->
             [ Text "Twoja nazwa" ]

@@ -166,7 +166,7 @@ translate _ mdString =
             [ Text "Desarrollado por ", ref RereadGames, Text "." ]
 
         RereadGames ->
-            [ Text "Reread Games" ]
+            [ Text "Webswerve" ]
 
         NameLabel ->
             [ Text "Tu nombre" ]

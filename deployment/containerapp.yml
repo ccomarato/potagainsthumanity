@@ -13,7 +13,6 @@ configuration:
     passwordSecretRef: dockerio-password
   secrets:
   - name: dockerio-password
-    value: dckr_pat_jfvCH0CTBwoHhP72pH0jDNN8_ik
 template:
   containers:
   - name: server

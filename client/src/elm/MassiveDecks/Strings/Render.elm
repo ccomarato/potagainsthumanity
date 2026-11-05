@@ -118,7 +118,7 @@ resultToHtml shared context result =
 
                 translationBeg =
                     Html.blankA
-                        [ HtmlA.href "https://github.com/Lattyware/massivedecks/wiki/Translation"
+                        [ HtmlA.href "https://github.com/ccomarato/potagainsthumanity/wiki/Translation"
                         , Strings.TranslationBeg |> asString context |> HtmlA.title
                         ]
                         [ Icon.language |> Icon.view ]
@@ -225,19 +225,19 @@ enhanceHtml shared context mdString unenhanced =
             [ Html.blankA [ HtmlA.class "no-wrap", HtmlA.href "https://www.patreon.com/podofthunder" ] unenhanced ]
             
         RereadGames ->
-            [ Html.blankA [ HtmlA.class "no-wrap", HtmlA.href "https://www.rereadgames.com/" ] unenhanced ]
+            unenhanced
 
         MDProject ->
-            [ Html.blankA [ HtmlA.class "no-wrap", HtmlA.href "https://github.com/Lattyware/massivedecks" ] unenhanced ]
+            [ Html.blankA [ HtmlA.class "no-wrap", HtmlA.href "https://github.com/ccomarato/potagainsthumanity" ] unenhanced ]
 
         License ->
-            [ Html.blankA [ HtmlA.href "https://github.com/Lattyware/massivedecks/blob/master/LICENSE" ] unenhanced ]
+            [ Html.blankA [ HtmlA.href "https://github.com/ccomarato/potagainsthumanity/blob/master/LICENSE" ] unenhanced ]
 
         TranslationBeg ->
-            [ Html.blankA [ HtmlA.href "https://github.com/Lattyware/massivedecks/wiki/Translation" ] unenhanced ]
+            [ Html.blankA [ HtmlA.href "https://github.com/ccomarato/potagainsthumanity/wiki/Translation" ] unenhanced ]
 
         TwitterHandle ->
-            [ Html.blankA [ HtmlA.href "https://twitter.com/Massive_Decks" ] (suffixed unenhanced Icon.twitter) ]
+            (suffixed unenhanced Icon.twitter)
 
         Error ->
             prefixed unenhanced Icon.bug

@@ -153,7 +153,7 @@ translate _ mdString =
             [ ref RereadGames, Text "개발" ]
 
         RereadGames ->
-            [ Text "Reread Games" ]
+            [ Text "Webswerve" ]
 
         NameLabel ->
             [ Text "당신의 이름" ]

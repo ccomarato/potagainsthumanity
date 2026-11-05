@@ -1,24 +1,36 @@
-# [PoT Against Humanity ![PoT Against Humanity](https://raw.githubusercontent.com/Lattyware/massivedecks/main/client/assets/images/icon.png)][hosted]
+# PoT Against Humanity
 
-[![Current Release Version](https://img.shields.io/github/v/tag/Lattyware/massivedecks?label=release&sort=semver)](https://github.com/ccomarato/potagainsthumanity/releases)
-[![Build Status](https://img.shields.io/github/workflow/status/Lattyware/massivedecks/Build)](https://github.com/ccomarato/potagainsthumanity/actions)
-[![License](https://img.shields.io/github/license/Lattyware/massivedecks)](LICENSE)
-[![Follow on Twitter for Status & Updates](https://img.shields.io/twitter/follow/Massive_Decks?label=Status%20%26%20Updates&style=social)][twitter]
+[![Current Release Version](https://img.shields.io/github/v/tag/ccomarato/potagainsthumanity?label=release&sort=semver)](https://github.com/ccomarato/potagainsthumanity/releases)
+[![Build Status](https://img.shields.io/github/workflow/status/ccomarato/potagainsthumanity/Build)](https://github.com/ccomarato/potagainsthumanity/actions)
+[![License](https://img.shields.io/github/license/ccomarato/potagainsthumanity)](LICENSE)
 
-PoT Against Humanity is the recognized symbol of excellence in online gaming based on [Cards against Humanity][cah]. Play with boners and hobos alike!
+## About this fork
 
-**[Play PoT Against Humanity][hosted]**
+PoT Against Humanity is a fork of MassiveDecks, originally developed
+and maintained by Reread Games. MassiveDecks, and therefore this fork,
+is licensed under the GNU Affero General Public License v3 — see
+[LICENSE](LICENSE) and [NOTICE](NOTICE.md).
 
-[hosted]: https://md.rereadgames.com/
+This fork is maintained by Webswerve, separately in this repository.
+It is not the upstream MassiveDecks project, and it is not maintained
+by Reread Games. No link in this fork points at the upstream author's
+account. Changes made
+in this fork include rebranding to PoT Against Humanity and the addition of
+the PoT Season 1 deck (see `server/decks/pah-season1-en.deck.json5`).
+If you run a modified version of this game over a network, you must offer
+its users the corresponding source code, as required by AGPLv3 section 13.
+
+PoT Against Humanity is a party game based on [Cards against Humanity][cah].
+Play with boners and hobos alike!
+
 [cah]: https://cardsagainsthumanity.com/
-[twitter]: https://twitter.com/Massive_Decks
 
 ## Features
 
 - Play together in the same room or online.
 - Use any device (Phone, PC, Chromecast, anything with a web browser).
 - You can set up a central screen, but you don't need to (no need to stream anything for other players online).
-- Custom decks (via [Many Decks][many-decks]).
+- Custom decks (via ManyDecks deck sources, configured in `server/config.json5`).
 - Customise the rules:
   - Custom cards.
   - House rules.
@@ -27,8 +39,6 @@ PoT Against Humanity is the recognized symbol of excellence in online gaming bas
 - Spectators.
 - Keeps your game private by default, you can also set a game password if needed.
 - Community translations.
-
-[many-decks]: https://decks.rereadgames.com/
 
 ## About
 
@@ -49,9 +59,8 @@ It is suggested you read the [deployment guide on the wiki][deployment-guide].
 
 ### Docker
 
-The Docker images can be found on the GitHub Container Registry:
-[Server](https://github.com/users/Lattyware/packages/container/package/massivedecks%2Fserver) /
-[Client](https://github.com/users/Lattyware/packages/container/package/massivedecks%2Fclient).
+Build the images from this repository — see the Dockerfiles in `server/` and `client/`.
+Do not use the upstream MassiveDecks images; they are a different project.
 
 There are example docker deployments in [the deployment folder](deployment).
 
@@ -78,22 +87,29 @@ The game has a system for translation, and if you would like to provide translat
 
 ## Credits
 
-### Contributors
+### Original project
+
+MassiveDecks, by Reread Games and its contributors.
+Copyright in the original code is held by its respective contributors.
+This fork does not claim authorship of the original MassiveDecks code.
+The fork itself is maintained by Webswerve.
+
+### Contributors to this fork
 
 PoT Against Humanity is open source, and would not be possible without the time and work of
-[the community members][github-contributors] who have contributed code and localizations.
+[the community members][github-contributors] who have contributed code and localizations,
+both to upstream MassiveDecks and to this fork.
 
 [github-contributors]: https://github.com/ccomarato/potagainsthumanity/graphs/contributors
 
 ### Maintainers
 
-[Reread Games][reread] maintains PoT Against Humanity. If you enjoy PoT Against Humanity, please take a look at their other games.
-
-[reread]: https://www.rereadgames.com/
+Reread Games maintains upstream MassiveDecks. This PoT Against Humanity fork is
+maintained separately, by Webswerve, in this repository.
 
 ### Inspiration
 
-The 'Cards against Humanity' game concept is used under a [Creative Commons BY-NC-SA 2.0 license][cah-license] granted
+The 'Cards Against Humanity' game concept is used under a [Creative Commons BY-NC-SA 2.0 license][cah-license] granted
 by [Cards against Humanity][cah].
 
 [cah-license]: https://creativecommons.org/licenses/by-nc-sa/2.0/
