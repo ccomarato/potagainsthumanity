@@ -197,8 +197,12 @@ export class SocketManager {
           }
         } else {
           const claims = auth;
-          await Change.apply(server, auth.gc, (lobby) =>
-            Action.handle(claims, lobby, validated, server),
+          await Change.apply(
+            server,
+            auth.gc,
+            (lobby) => Action.handle(claims, lobby, validated, server),
+            undefined,
+            { humanActivity: true },
           );
           Logging.logger.info("WebSocket receive:", {
             user: auth.uid,

@@ -138,55 +138,63 @@ async function main(): Promise<void> {
     const gameCode: GameCode = req.params.gameCode;
 
     const registration = RegisterUser.validate(req.body);
-    const id = await Change.applyAndReturn(state, gameCode, (lobby) => {
-      if (lobby.config.password !== registration.password) {
-        throw new InvalidLobbyPasswordError();
-      }
-      const newUser = User.create(
-        registration,
-        lobby.config.audienceMode ? "Spectator" : "Player",
-      );
-      if (
-        wu(Object.values(lobby.users)).find((u) => u.name === registration.name)
-      ) {
-        throw new UsernameAlreadyInUseError(registration.name);
-      }
-      const id = lobby.nextUserId.toString();
-      lobby.nextUserId += 1;
-      lobby.users[id] = newUser;
-      const game = lobby.game;
-      if (game !== undefined) {
-        game.playerOrder.push(id);
-        if (newUser.role === "Player") {
-          game.players[id] = Player.initial(
-            game.decks.responses.draw(game.rules.handSize),
-          );
+    const id = await Change.applyAndReturn(
+      state,
+      gameCode,
+      (lobby) => {
+        if (lobby.config.password !== registration.password) {
+          throw new InvalidLobbyPasswordError();
         }
-      }
-      const unpause =
-        game !== undefined
-          ? game.paused
-            ? game.startNewRound(state, lobby)
-            : {}
-          : {};
-      return {
-        change: {
-          lobby,
-          events: [
-            Event.targetAll(PresenceChanged.joined(id, newUser)),
-            ...(unpause.events !== undefined ? unpause.events : []),
-          ],
-          timeouts: [
-            {
-              timeout: UserDisconnect.of(id),
-              after: config.timeouts.disconnectionGracePeriod,
-            },
-            ...(unpause.timeouts !== undefined ? unpause.timeouts : []),
-          ],
-        },
-        returnValue: id,
-      };
-    });
+        const newUser = User.create(
+          registration,
+          lobby.config.audienceMode ? "Spectator" : "Player",
+        );
+        if (
+          wu(Object.values(lobby.users)).find(
+            (u) => u.name === registration.name,
+          )
+        ) {
+          throw new UsernameAlreadyInUseError(registration.name);
+        }
+        const id = lobby.nextUserId.toString();
+        lobby.nextUserId += 1;
+        lobby.users[id] = newUser;
+        const game = lobby.game;
+        if (game !== undefined) {
+          game.playerOrder.push(id);
+          if (newUser.role === "Player") {
+            game.players[id] = Player.initial(
+              game.decks.responses.draw(game.rules.handSize),
+            );
+          }
+        }
+        const unpause =
+          game !== undefined
+            ? game.paused
+              ? game.startNewRound(state, lobby)
+              : {}
+            : {};
+        return {
+          change: {
+            lobby,
+            events: [
+              Event.targetAll(PresenceChanged.joined(id, newUser)),
+              ...(unpause.events !== undefined ? unpause.events : []),
+            ],
+            timeouts: [
+              {
+                timeout: UserDisconnect.of(id),
+                after: config.timeouts.disconnectionGracePeriod,
+              },
+              ...(unpause.timeouts !== undefined ? unpause.timeouts : []),
+            ],
+          },
+          returnValue: id,
+        };
+      },
+      undefined,
+      { humanActivity: true },
+    );
     const claims: Token.Claims = {
       gc: gameCode,
       uid: id,

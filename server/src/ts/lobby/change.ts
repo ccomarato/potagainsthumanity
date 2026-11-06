@@ -115,18 +115,30 @@ function internalApply(
   return { ...lobbyResult, ...timeoutResult, ...tasksResult, ...eventResult };
 }
 
+export interface ApplyOptions {
+  /**
+   * True when the change comes from a human action (a player joining, or a
+   * WebSocket action). Defaults to false: timeouts, tasks, and
+   * connect/disconnect presence changes are system activity and must not
+   * reset the garbage-collection clock.
+   */
+  humanActivity?: boolean;
+}
+
 /**
  * Apply the given change and return a value.
  * @param server The server state.
  * @param gameCode The game code for the lobby to apply the change to.
  * @param handler The handler that gives the change.
  * @param timeoutId If given, the id of the timeout being executed.
+ * @param options If given, marks the change as human activity.
  */
 export async function applyAndReturn<T>(
   server: ServerState,
   gameCode: GameCode,
   handler: HandlerWithReturnValue<T>,
   timeoutId?: Timeout.Id,
+  options?: ApplyOptions,
 ): Promise<T> {
   try {
     const [tasks, returnValue] = await server.store.writeAndReturn(
@@ -147,6 +159,7 @@ export async function applyAndReturn<T>(
             lobby: result.lobby,
             timeouts: result.timeouts,
             executedTimeout: timeoutId,
+            humanActivity: options?.humanActivity,
           },
           result: [result.tasks, returnValue],
         };
@@ -180,12 +193,14 @@ export async function applyAndReturn<T>(
  * @param gameCode The game code for the lobby to apply the change to.
  * @param handler The handler that gives the change.
  * @param timeoutId If given, the id of the timeout being executed.
+ * @param options If given, marks the change as human activity.
  */
 export async function apply(
   server: ServerState,
   gameCode: GameCode,
   handler: Handler,
   timeoutId?: Timeout.Id,
+  options?: ApplyOptions,
 ): Promise<void> {
   await applyAndReturn(
     server,
@@ -195,5 +210,6 @@ export async function apply(
       returnValue: undefined,
     }),
     timeoutId,
+    options,
   );
 }
