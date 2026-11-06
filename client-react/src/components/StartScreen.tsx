@@ -166,7 +166,7 @@ export function StartScreen({ onEnter }: { onEnter: (session: Session) => void }
       <header className="text-center">
         <CardHero />
         <p className="mt-1 text-sm text-purple-300">
-          A private friends game — Phase 0 scaffold: create, join, sync.
+          Phase 0 scaffold: create, join, sync.
         </p>
       </header>
 

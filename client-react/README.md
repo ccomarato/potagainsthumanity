@@ -40,8 +40,8 @@ To point the scaffold at the **live** server instead of a local one,
 run the game server somewhere reachable and set `VITE_API_TARGET` to
 it, e.g. `VITE_API_TARGET=https://pot.webswerve.com npm run dev`.
 (Your live server is already on 0.1.5; the scaffold speaks the same
-protocol. The token you get from create/join is per-game, so a
-private friends game stays private.)
+protocol. The token you get from create/join is per-game, so one game's
+token cannot join another game.)
 
 Production build:
 
