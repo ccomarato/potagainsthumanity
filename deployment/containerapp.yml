@@ -20,7 +20,7 @@ template:
   revisionSuffix: v0-1-5
   containers:
   - name: server
-    image: whiplashpntz/potagainsthumanity:server-0.1.5
+    image: whiplashpntz/potagainsthumanity:server-0.1.6
     resources:
       cpu: 0.5
       memory: 1.0Gi
@@ -28,7 +28,7 @@ template:
     - name: NODE_ENV
       value: production
   - name: client
-    image: whiplashpntz/potagainsthumanity:client-0.1.5
+    image: whiplashpntz/potagainsthumanity:client-0.1.6
     resources:
       cpu: 0.5
       memory: 1.0Gi
