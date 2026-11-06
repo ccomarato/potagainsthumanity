@@ -60,12 +60,34 @@ class To0 extends Postgres.Upgrade<undefined, 0> {
   }
 }
 
+class To1 extends Postgres.Upgrade<0, 1> {
+  public readonly to = 1;
+
+  public async apply(client: Pg.PoolClient): Promise<1> {
+    // Track human activity separately from last_access: the round timers
+    // in a started-but-empty game write on every round restart, which used
+    // to refresh last_access and keep the game alive forever. Existing
+    // lobbies get a fresh activity clock from the migration, so they are
+    // collected after one abandoned period with no human action.
+    await client.query(
+      "ALTER TABLE potagainsthumanity.lobbies ADD COLUMN last_human_activity TIMESTAMP DEFAULT NOW();",
+    );
+    await client.query("UPDATE potagainsthumanity.meta SET version = $1;", [
+      this.to,
+    ]);
+    return this.to;
+  }
+}
+
 const upgrades: Postgres.Upgrades = (version) => {
   switch (version) {
     case undefined:
       return new To0(version);
 
     case 0:
+      return new To1(version);
+
+    case 1:
       return undefined;
 
     default:
@@ -128,9 +150,10 @@ export class PostgresStore extends Store.Store {
     const lobbyId = GameCode.decode(gameCode);
     await this.pg.withClient(
       async (client) =>
-        await client.query("DELETE FROM potagainsthumanity.lobbies WHERE id = $1", [
-          lobbyId,
-        ]),
+        await client.query(
+          "DELETE FROM potagainsthumanity.lobbies WHERE id = $1",
+          [lobbyId],
+        ),
     );
   }
 
@@ -139,7 +162,7 @@ export class PostgresStore extends Store.Store {
       const result = await client.query(
         `
           DELETE FROM potagainsthumanity.lobbies WHERE
-            ((last_access + $1::interval ) < NOW()) OR
+            ((last_human_activity + $1::interval ) < NOW()) OR
             (SELECT bool_and(value->>'control' = 'Computer' OR value->>'presence' = 'Left') FROM jsonb_each(lobby->'users'));
         `,
         [`${this.config.abandonedTime} milliseconds`],
@@ -157,7 +180,9 @@ export class PostgresStore extends Store.Store {
   private static async *lobbySummariesInternal(
     client: Pg.PoolClient,
   ): AsyncIterableIterator<Lobby.Summary> {
-    const result = await client.query("SELECT * FROM potagainsthumanity.summaries");
+    const result = await client.query(
+      "SELECT * FROM potagainsthumanity.summaries",
+    );
     for (const { id, name, started, ended, users, password } of result.rows) {
       yield {
         gameCode: GameCode.encode(id),
@@ -188,7 +213,7 @@ export class PostgresStore extends Store.Store {
         defaults,
       );
       const result = await client.query(
-        "INSERT INTO potagainsthumanity.lobbies VALUES (DEFAULT, $1) RETURNING id",
+        "INSERT INTO potagainsthumanity.lobbies (lobby) VALUES ($1) RETURNING id",
         [lobby],
       );
       const gameCode = GameCode.encode(result.rows[0]["id"]);
@@ -247,10 +272,20 @@ export class PostgresStore extends Store.Store {
         Lobby.fromJSON(get.rows[0]["lobby"] as Lobby.Lobby),
       );
       if (transaction.lobby) {
-        await client.query(
-          "UPDATE potagainsthumanity.lobbies SET lobby=$2, last_access=NOW() WHERE id = $1;",
-          [lobbyId, transaction.lobby],
-        );
+        // last_access still tracks the last write of any kind; only a human
+        // action moves last_human_activity, which is what garbage
+        // collection now uses.
+        if (transaction.humanActivity) {
+          await client.query(
+            "UPDATE potagainsthumanity.lobbies SET lobby=$2, last_access=NOW(), last_human_activity=NOW() WHERE id = $1;",
+            [lobbyId, transaction.lobby],
+          );
+        } else {
+          await client.query(
+            "UPDATE potagainsthumanity.lobbies SET lobby=$2, last_access=NOW() WHERE id = $1;",
+            [lobbyId, transaction.lobby],
+          );
+        }
       }
       if (transaction.timeouts !== undefined) {
         for (const timeout of transaction.timeouts) {
@@ -261,9 +296,10 @@ export class PostgresStore extends Store.Store {
         }
       }
       if (transaction.executedTimeout !== undefined) {
-        await client.query("DELETE FROM potagainsthumanity.timeouts WHERE id = $1", [
-          transaction.executedTimeout,
-        ]);
+        await client.query(
+          "DELETE FROM potagainsthumanity.timeouts WHERE id = $1",
+          [transaction.executedTimeout],
+        );
       }
       return result;
     });

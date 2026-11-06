@@ -17,6 +17,15 @@ export interface Transaction {
    */
   lobby?: Lobby.Lobby;
   /**
+   * True when this write was caused by a human action (a player joining, or
+   * a WebSocket action such as submitting a play, judging, or configuring
+   * the game). System writes - round/stage timeouts advancing the game,
+   * disconnect marking, deck-load tasks, and connect/sync presence flips -
+   * leave this unset, so a game where nobody does anything stops counting
+   * as active even though its own timers keep writing to it.
+   */
+  humanActivity?: boolean;
+  /**
    * If given, timeouts that should be added to the store.
    */
   timeouts?: Iterable<Timeout.After>;
@@ -111,8 +120,10 @@ export abstract class Store {
   public abstract delete(gameCode: GameCode): Promise<void>;
 
   /**
-   * Remove lobbies where the game is finished or everyone has been
-   * disconnected for some time.
+   * Remove lobbies where the game is finished, everyone has left, or there
+   * has been no human activity for longer than the configured abandoned
+   * time. A disconnected owner alone does not count: disconnecting only
+   * changes connection state, and a game with active players keeps running.
    * This should also clean up the cache as appropriate.
    */
   public abstract garbageCollect(): Promise<number>;

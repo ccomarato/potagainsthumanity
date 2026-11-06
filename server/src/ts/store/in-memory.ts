@@ -22,6 +22,13 @@ interface TimeoutMeta {
 interface LobbyMeta {
   lobby: Lobby.Lobby;
   lastWrite: number;
+  /**
+   * When a human last did something in this game (joined, or sent a
+   * WebSocket action). System writes - the round timers restarting rounds
+   * in an empty game, disconnect marking, deck loads - update lastWrite
+   * but not this, so they cannot keep an idle game alive forever.
+   */
+  lastHumanActivity: number;
 }
 
 /**
@@ -70,7 +77,11 @@ export class InMemoryStore extends Store {
     const gameCode = GameCode.encode(this.nextLobby);
     const { lobby, tasks } = Lobby.create(gameCode, creation, defaults);
     this.nextLobby += 1;
-    this.lobbies.set(gameCode, { lobby, lastWrite: Date.now() });
+    this.lobbies.set(gameCode, {
+      lobby,
+      lastWrite: Date.now(),
+      lastHumanActivity: Date.now(),
+    });
     return {
       gameCode,
       token: Token.create(
@@ -105,9 +116,16 @@ export class InMemoryStore extends Store {
   ): Promise<T> {
     const { transaction, result } = write(await this.lobby(gameCode));
     if (transaction.lobby !== undefined) {
+      const existing = this.lobbies.get(gameCode);
       this.lobbies.set(gameCode, {
         lobby: transaction.lobby,
         lastWrite: Date.now(),
+        // Only a human action moves the activity clock. In particular the
+        // round timers in a started-but-empty game write on every round
+        // restart, which used to refresh lastWrite and defeat collection.
+        lastHumanActivity: transaction.humanActivity
+          ? Date.now()
+          : existing?.lastHumanActivity ?? Date.now(),
       });
     }
     if (transaction.timeouts !== undefined) {
@@ -127,9 +145,12 @@ export class InMemoryStore extends Store {
 
   public async garbageCollect(): Promise<number> {
     const toRemove = new Set<GameCode.GameCode>();
-    for (const [gameCode, { lobby, lastWrite }] of this.lobbies.entries()) {
+    for (const [
+      gameCode,
+      { lobby, lastHumanActivity },
+    ] of this.lobbies.entries()) {
       if (
-        lastWrite + this.config.abandonedTime < Date.now() ||
+        lastHumanActivity + this.config.abandonedTime < Date.now() ||
         wu(Object.values(lobby.users)).every(
           (u) => u.control === "Computer" || u.presence === "Left",
         )
