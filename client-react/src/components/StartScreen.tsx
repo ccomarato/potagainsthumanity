@@ -247,7 +247,7 @@ export function StartScreen({ onEnter }: { onEnter: (session: Session) => void }
             </button>
           </form>
           <p className="mt-2 text-xs text-purple-300">
-            Server defaults apply (hand of 10, first to 7, Winners Pick on). Decks, rules,
+            Server defaults apply (hand of 10, first to 7, Head Hobo's Pick on). Decks, rules,
             time limits and privacy are set in the game screen once you are in.
           </p>
         </section>
