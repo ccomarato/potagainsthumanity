@@ -137,7 +137,7 @@ export function create(
  * The state of the given lobby.
  */
 export const state = (lobby: Lobby): State =>
-  lobby.game === null ? "SettingUp" : "Playing";
+  lobby.game == null ? "SettingUp" : "Playing";
 
 /**
  * Get a summary of the given lobby.
