@@ -1,0 +1,23 @@
+# Run the published images locally (built by CI, pulled from Docker Hub).
+# No local build: `docker compose -f docker-compose.images.yml up -d`
+# Open http://localhost:8080 — server API at http://localhost:8081/api/version
+# Stop everything: `docker compose -f docker-compose.images.yml down`
+services:
+  server:
+    image: whiplashpntz/potagainsthumanity:server-0.1.7
+    container_name: server
+    ports:
+      - "127.0.0.1:8081:8081"
+    networks:
+      - internal
+    restart: unless-stopped
+  client:
+    image: whiplashpntz/potagainsthumanity:client-0.1.7
+    container_name: client
+    ports:
+      - "127.0.0.1:8080:8080"
+    networks:
+      - internal
+    restart: unless-stopped
+networks:
+  internal:
