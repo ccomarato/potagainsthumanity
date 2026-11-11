@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "0.1.6",
+  "contentVersion": "0.1.7",
   "parameters": {
     "dockerioPassword": {
       "type": "secureString",
@@ -52,11 +52,11 @@
           ]
         },
         "template": {
-          "revisionSuffix": "v0-1-6",
+          "revisionSuffix": "v0-1-7",
           "containers": [
             {
               "name": "server",
-              "image": "whiplashpntz/potagainsthumanity:server-0.1.6",
+              "image": "whiplashpntz/potagainsthumanity:server-0.1.7",
               "resources": {
                 "cpu": 0.5,
                 "memory": "1Gi"
@@ -70,7 +70,7 @@
             },
             {
               "name": "client",
-              "image": "whiplashpntz/potagainsthumanity:client-0.1.6",
+              "image": "whiplashpntz/potagainsthumanity:client-0.1.7",
               "resources": {
                 "cpu": 0.5,
                 "memory": "1Gi"
